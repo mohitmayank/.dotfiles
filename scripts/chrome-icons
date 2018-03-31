@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cp $DIR/../assets/chrome/youtube/* ~/.config/google-chrome/Default/Extensions/adnlfjpnmidfimlkaohpidplnoimahfh/*/icons/
+#cp ./assets/chrome/drive/* ~/.config/google-chrome/Default/Extensions/aghbiahbpaijignceidepookljebhfak/*/icons/
+cp $DIR/../assets/chrome/saavn/* ~/.config/google-chrome/Default/Extensions/geldndgcdkacbimmmbllohdgojmdnick/*/icons/
+cp $DIR/../assets/chrome/stackedit/* ~/.config/google-chrome/Default/Extensions/gpjgpeoapdkdlcmiggaeegpkddpcnokp/*/icons/
+cp $DIR/../assets/chrome/keep/* ~/.config/google-chrome/Default/Extensions/hcfcmgpnmpinpidjdgejehjchlbglpde/*/icons/
+cp $DIR/../assets/chrome/calendar/* ~/.config/google-chrome/Default/Extensions/hjpceadhnpnpdelkidbjdmoodafopfkp/*/icons/
+cp $DIR/../assets/chrome/whatsapp/* ~/.config/google-chrome/Default/Extensions/hnpfjngllnobngcgfapefoaidbinmjnm/*/icons/
+cp $DIR/../assets/chrome/play_books/* ~/.config/google-chrome/Default/Extensions/jadnfheoejlilofkmkjjocncknpdepho/*/icons/
+cp $DIR/../assets/chrome/gmail/* ~/.config/google-chrome/Default/Extensions/kmhopmchchfpfdcdjodmpfaaphdclmlj/*/icons/
+cp $DIR/../assets/chrome/asana/* ~/.config/google-chrome/Default/Extensions/liidamgpfdghgkecfgipokgbjaeacmlh/*/icons/
+cp $DIR/../assets/chrome/slack/* ~/.config/google-chrome/Default/Extensions/ljfgojfceihiajflikgmfpgmjdlbmepl/*/icons/
+cp $DIR/../assets/chrome/photos/* ~/.config/google-chrome/Default/Extensions/ncmjhecbjeaamljdfahankockkkdmedg/*/icons/
+cp $DIR/../assets/chrome/hangouts/* ~/.config/google-chrome/Default/Extensions/odadmohlkalmmfdgjdlbjdpoekbijhcc/*/icons/
+cp $DIR/../assets/chrome/skype/* ~/.config/google-chrome/Default/Extensions/oonccmmafcaodljbcgobdbknmbljiafh/*/icons/

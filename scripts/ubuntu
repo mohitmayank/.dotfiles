@@ -1,0 +1,13 @@
+#!/bin/bash
+
+##Add self to suoders
+ME=$(whoami)
+sudo sh -c "echo '$ME ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$ME"
+
+##update and upgrade
+sudo apt-get update
+sudo apt-get upgrade -y
+
+##install ubuntu universe packages
+sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop
+sudo apt-get install -y vim git

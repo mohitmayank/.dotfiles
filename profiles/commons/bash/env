@@ -1,0 +1,21 @@
+# {{{ default prompt
+PS1='[\u@\h \W]\$ '
+# }}}
+
+# {{{  default editor
+export EDITOR="vim"
+# }}}
+
+# {{{ Private bin
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+# }}}
+
+# {{{  Node path
+export PATH="./node_modules/.bin:$PATH"
+# }}}
+
+#export PROMPT_COMMAND='echo -ne "\033]0;`pwd`\007"'
+
+

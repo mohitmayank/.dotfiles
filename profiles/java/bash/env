@@ -1,0 +1,10 @@
+# {{{  JAVA Env
+export PATH=${PATH}:$HOME/bin/android-studio/sdk/platform-tools:$HOME/bin/android-studio/sdk/tools
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export ANDROID_HOME=$HOME/bin/android-studio/sdk
+export ANT_HOME="/usr/share/ant"
+export PATH=$PATH:$ANT_HOME/bin
+export PATH=$JAVA_HOME/bin:$PATH
+# }}}
+
+

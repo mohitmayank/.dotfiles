@@ -1,0 +1,34 @@
+[user]
+	email = mayank.mohit@gmail.com
+	name = Mohit Jain
+[credential]
+	helper = cache --timeout 2880000
+[push]
+	default = current
+[core]
+	excludesfile = ~/.gitignore
+	fileMode = true
+	filemode = false
+	filemode = true
+[diff]
+	tool = meld
+[merge]
+	tool = mymeld
+[mergetool "mymeld"]
+	cmd = meld $LOCAL $MERGED $REMOTE
+[credential]
+	helper = cache --timeout=36000
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	nfm = "!f(){ git -c core.fileMode=false $@; };f"
+	s = status
+	m = merge
+	b = branch
+	c = commit
+	p = push
+	f = pull
+	co = checkout
+	mt = mergetool	
+	

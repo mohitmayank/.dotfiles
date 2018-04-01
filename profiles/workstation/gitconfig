@@ -21,7 +21,8 @@
 [difftool]
 	prompt = false
 [alias]
-	d = difftool
+   a = add
+   d = difftool
 	nfm = "!f(){ git -c core.fileMode=false $@; };f"
 	s = status
 	m = merge

@@ -63,24 +63,25 @@ sudo gdebi -n /tmp/google-chrome-stable_current_amd64.deb
 #sudo gdebi -n steam.deb
 
 
-##libre office latest
-sudo add-apt-repository ppa:libreoffice/ppa
-sudo apt-get update
-sudo apt install libreoffice
-
-
-
-##install opera
+##add repos
+sudo add-apt-repository -y ppa:libreoffice/ppa
 sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
 sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
+sudo add-apt-repository -y ppa:micahflee/ppa
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+
+
 sudo apt-get update
+
+##libre office latest
+sudo apt install libreoffice
+
+##install opera
 sudo apt-get install -y opera-stable
 
-
-
 ##TOR
-sudo add-apt-repository ppa:micahflee/ppa
-sudo apt-get update
 sudo apt-get install -y torbrowser-launcher
 
 ##Postman
@@ -139,9 +140,6 @@ sudo chown root:root /usr/bin/touchtoggle
 
 
 ##install docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
 sudo apt-get install -y docker-ce
 sudo usermod -aG docker $(whoami)
 

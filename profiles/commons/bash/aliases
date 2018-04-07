@@ -32,6 +32,7 @@ alias b='cd -'
 alias ping5='ping -c 5'
 alias d='docker'
 alias dc='docker-compose'
+alias rp='realpath'
 
 # Nav
 alias ..="cd .."

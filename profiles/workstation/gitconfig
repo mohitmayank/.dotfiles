@@ -31,5 +31,6 @@
 	p = push
 	f = pull
 	co = checkout
-	mt = mergetool	
+   mt = mergetool	
+   A = "add -A"
 	

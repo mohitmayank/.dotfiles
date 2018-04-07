@@ -31,8 +31,7 @@ alias rcopy='rsync -rltvcEh --progress --delete --timeout=0'
 alias b='cd -'
 alias ping5='ping -c 5'
 alias d='docker'
-alias dcu='docker-compose up'
-alias dcb='docker-compose build'
+alias dc='docker-compose'
 
 # Nav
 alias ..="cd .."

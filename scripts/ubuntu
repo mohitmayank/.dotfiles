@@ -10,4 +10,4 @@ sudo apt-get upgrade -y
 
 ##install ubuntu universe packages
 sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
-sudo apt-get install -y vim git tmux
+sudo apt-get install -y vim git tmux ytalk

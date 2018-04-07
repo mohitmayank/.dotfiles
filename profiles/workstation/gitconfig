@@ -32,5 +32,5 @@
 	f = pull
 	co = checkout
    mt = mergetool	
-   A = "add -A"
-	
+   A = "add -A"	
+   cm = "commit -m"

@@ -7,5 +7,7 @@
 	p = push
 	f = pull
 	co = checkout
-	
+	mt = mergetool	
+   A = "add -A"	
+   cm = "commit -m"
 	

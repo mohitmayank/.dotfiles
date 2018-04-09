@@ -3,12 +3,22 @@
 :set nu
 ":set expandtab
 :set tabstop=3
-:set shiftwidth=2
+:set shiftwidth=3
 :set autoindent
 :set smartindent
 :syn on
 :set noswapfile
 :set hlsearch
+"
+colorscheme default 
+
+set list
+set listchars+=tab:┊\ 
+set listchars+=eol:\ 
+set listchars+=space:·
+
+"set cursorcolumn
+"set cursorline
 
 :highlight HLONE ctermbg=green ctermfg=white
 :highlight HLTWO ctermbg=blue ctermfg=white
@@ -40,45 +50,27 @@ nnoremap zq zfa}
 nnoremap <bar> :set invnumber<CR>
 
 set nocompatible               " be iMproved
-filetype off                   " required!
+"filetype off                   " required!
 
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-"Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
 " My Bundles here:
 
-"Bundle 'Syntastic'
-"Bundle 'maksimr/vim-jsbeautify'
-"Bundle 'tomtom/tcomment_vim'
-"Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'scrooloose/nerdtree'
-" Bundle 'jistr/vim-nerdtree-tabs'
-" Bundle 'Yggdroot/indentLine'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'scrooloose/nerdtree'
 
-filetype plugin indent on     " required!
-
-"autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
-"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-"autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+"filetype plugin indent on     " required!
 
 :set encoding=utf-8
 :set t_Co=256
 
-"let g:indent_guides_auto_colors = 0
-"let g:indent_guides_enable_on_vim_startup=1
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=8
-"let g:indent_guides_start_level=1
-"let g:indent_guides_guide_size=1
-
-"let g:nerdtree_tabs_open_on_console_startup=1
-"map <C-n> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+map <C-n> :NERDTreeTabsToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 :set tabstop=3

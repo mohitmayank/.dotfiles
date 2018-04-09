@@ -3,3 +3,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 rm -f ~/.vimrc
 ln -s $DIR/vimrc ~/.vimrc
+
+rm -f ~/.vim
+ln -s $DIR/vim ~/.vim
+
+rm -f ~/.tmux.conf
+ln -s $DIR/tmux.conf ~/.tmux.conf

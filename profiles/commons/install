@@ -4,8 +4,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 rm -f ~/.vimrc
 ln -s $DIR/vimrc ~/.vimrc
 
-rm -f ~/.vim
-ln -s $DIR/vim ~/.vim
+mkdir -p ~/.vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 rm -f ~/.tmux.conf
 ln -s $DIR/tmux.conf ~/.tmux.conf

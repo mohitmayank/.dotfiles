@@ -5,7 +5,7 @@ rm -f ~/.vimrc
 ln -s $DIR/vimrc ~/.vimrc
 
 mkdir -p ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
 
 rm -f ~/.tmux.conf
 ln -s $DIR/tmux.conf ~/.tmux.conf

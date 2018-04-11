@@ -47,7 +47,9 @@ set foldlevel=1         "this is just what i use
 set foldlevelstart=2
 
 nnoremap zq zfa}
-nnoremap <bar> :set invnumber<CR>
+"nnoremap <bar> :set invnumber<CR>
+nnoremap <Bslash> <C-w>
+
 
 set nocompatible               " be iMproved
 "filetype off                   " required!
@@ -69,8 +71,8 @@ Bundle 'scrooloose/nerdtree'
 :set encoding=utf-8
 :set t_Co=256
 
-let g:nerdtree_tabs_open_on_console_startup=1
-map <C-n> :NERDTreeTabsToggle<CR>
+"let g:nerdtree_tabs_open_on_console_startup=1
+map <C-n> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 :set tabstop=3

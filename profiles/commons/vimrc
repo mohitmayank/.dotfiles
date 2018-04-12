@@ -15,7 +15,7 @@ colorscheme default
 set list
 set listchars+=tab:┊\ 
 set listchars+=eol:\ 
-set listchars+=space:·
+"set listchars+=space:·
 
 "set cursorcolumn
 "set cursorline

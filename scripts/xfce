@@ -44,6 +44,7 @@ sudo apt-get install -y filezilla chromium-browser clipit
 sudo apt-get install -y vlc calibre  
 sudo apt-get install -y openvpn network-manager-openvpn-gnome	
 sudo apt-get install -y openssh-server	
+sudo apt-get install -y ttf-mscorefonts-installer	
 sudo apt-get install -y baobab #Disk Usage Analyzer
 
 

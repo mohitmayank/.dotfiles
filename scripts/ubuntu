@@ -11,3 +11,9 @@ sudo apt-get update
 ##install ubuntu universe packages
 sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
 sudo apt-get install -y vim git tmux ytalk
+
+mkdir -p ~/.local/share/fonts
+
+for type in Bold Light Medium Regular Retina; do
+	wget -O ~/.local/share/fonts/FiraCode-${type}.ttf "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
+done

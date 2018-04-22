@@ -72,13 +72,17 @@ sudo add-apt-repository -y ppa:micahflee/ppa
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo add-apt-repository ppa:zeal-developers/ppa
-
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 sudo apt-get update
 
+##vscode
+sudo apt-get install code 
 
 ##zeal offline docs
-sudo apt-get install zeal
+sudo apt-get install zeal 
 
 ##libre office latest
 sudo apt install libreoffice

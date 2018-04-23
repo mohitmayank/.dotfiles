@@ -1,0 +1,14 @@
+{
+    "editor.tabSize" : 3,
+    "editor.renderWhitespace" : "boundary",
+    "editor.insertSpaces" : false,
+    "editor.wordWrap" : "on",
+    "editor.minimap.enabled": false,
+    "html.autoClosingTags": false,
+    "window.menuBarVisibility":"toggle",
+    "workbench.editor.enablePreview": false,
+    "workbench.iconTheme": "null",
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true
+}

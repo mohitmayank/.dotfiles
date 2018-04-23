@@ -13,3 +13,7 @@ ln -s $DIR/clipitrc ~/.config/clipit/clipitrc
 mkdir -p ~/.config/geany
 rm -rf ~/.config/geany/colorschemes
 ln -s $DIR/geany/colorschemes ~/.config/geany/colorschemes
+
+mkdir -p ~/.config/Code/User
+rm -rf ~/.config/Code/User/settings.json
+ln -s $DIR/vscode ~/.config/Code/User/settings.json

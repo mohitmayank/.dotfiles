@@ -5,7 +5,26 @@ rm -f ~/.vimrc
 ln -s $DIR/vimrc ~/.vimrc
 
 mkdir -p ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+
+if [ -d ~/.vim/bundle/vundle ]; then
+	#do nothing
+	:
+else 
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+fi
+
+vim -c 'PluginInstall' -c 'qa!'
 
 rm -f ~/.tmux.conf
 ln -s $DIR/tmux.conf ~/.tmux.conf
+
+mkdir -p ~/.tmux/plugins
+
+if [ -d ~/.tmux/plugins/tpm ]; then
+	#do nothing
+	:
+else 
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+~/.tmux/plugins/tpm/scripts/install_plugins.sh

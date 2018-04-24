@@ -3,7 +3,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function setupProfile {
-	if grep -q '$DIR/includes/index' ~/.bashrc
+	if grep -q '/includes/index' ~/.bashrc
 	then
 		#do nothing
 		:

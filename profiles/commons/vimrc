@@ -1,4 +1,4 @@
-"let mapleader = ","
+"let mapleader = "\"
 :set incsearch
 :set nu
 ":set expandtab
@@ -30,8 +30,8 @@ nnoremap QQ :2mat none<CR>
 
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
-nnoremap <C-h> gT
-nnoremap <C-l> gt
+"nnoremap <C-h> gT
+"nnoremap <C-l> gt
 
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
@@ -46,9 +46,9 @@ set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 set foldlevelstart=2
 
-nnoremap zq zfa}
+"nnoremap zq zfa}
 "nnoremap <bar> :set invnumber<CR>
-nnoremap <Bslash> <C-w>
+"nnoremap <Bslash> <C-w>
 
 
 set nocompatible               " be iMproved
@@ -65,6 +65,8 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdtree'
+Plugin 'christoomey/vim-tmux-navigator'
+
 
 "filetype plugin indent on     " required!
 

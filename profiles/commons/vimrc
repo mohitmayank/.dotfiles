@@ -66,7 +66,10 @@ Bundle 'gmarik/vundle'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'itchyny/lightline.vim'
 
+
+set laststatus=2
 
 "filetype plugin indent on     " required!
 
@@ -78,3 +81,6 @@ map <C-n> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 :set tabstop=3
+
+set noshowmode
+

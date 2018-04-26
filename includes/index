@@ -1,0 +1,10 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FILES=`find $DIR/*/*`
+for DOTFILE in $FILES
+do
+  [ -f "$DOTFILE" ] && source $DOTFILE
+done
+
+if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+      fortune | cowsay
+fi

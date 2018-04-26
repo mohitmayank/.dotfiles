@@ -1,0 +1,21 @@
+#!/bin/bash
+
+##Add self to suoders
+ME=$(whoami)
+sudo sh -c "echo '$ME ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$ME"
+
+##update and upgrade
+sudo apt-get update
+#sudo apt-get upgrade -y
+
+##install ubuntu universe packages
+sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
+sudo apt-get install -y vim git tmux ytalk
+
+mkdir -p ~/.local/share/fonts
+
+for type in Bold Light Medium Regular Retina; do
+	wget -O ~/.local/share/fonts/FiraCode-${type}.ttf "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
+done
+
+fc-cache -f

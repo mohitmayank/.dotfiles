@@ -1,0 +1,83 @@
+# {{{ Color-enabled aliases
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+# }}}
+
+
+# {{{ Common Shortcuts
+alias ..='cd ..'
+alias l='ls -ltrh'
+alias la='ls -ltrha'
+alias v='vim'
+alias vr='vim -M'
+alias sv='sudo vim'
+alias h='history'
+alias t='tail -f'
+alias c='clear'
+alias i='whoami'
+alias md='mkdir -p'
+alias rr='rm -rf'
+alias cr='cp -r'
+alias p='pwd'
+alias g='git'
+alias x='exit'
+alias q='exit'
+alias rcopy='rsync -rltvcEh --progress --delete --timeout=0'
+alias b='cd -'
+alias ping5='ping -c 5'
+alias d='docker'
+alias dc='docker-compose'
+alias rp='realpath'
+
+# Nav
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+# }}}
+
+
+# {{{ Typos
+alias :q='exit'
+alias :Q='exit'
+alias :x='exit'
+alias :wq='exit'
+alias cd..='cd ..'
+alias cd-='cd -'
+# }}}
+
+
+# {{{ Overrides
+alias du='du -c -h'
+alias df='df -h'
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -P now'
+alias service='sudo service'
+# }}}
+
+
+# {{{ search
+alias f1='find . -name "*.*" -print | xargs grep -sn --color=auto'
+alias f2='find . -name'
+alias pf='ps -ef | grep'
+alias hf='history | grep'
+alias lf='ls -ltrha | grep'
+# }}}
+
+
+# {{{ apt-get
+alias agi='sudo apt-get install'
+alias agr='sudo apt-get --purge remove'
+alias agu='sudo apt-get update'
+alias aar='sudo add-apt-repository'
+# }}}
+
+
+# {{{ System Services (Arch)
+#alias sys='sudo systemctl'
+# }}}

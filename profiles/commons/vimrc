@@ -1,0 +1,97 @@
+"let mapleader = "\"
+:set incsearch
+:set nu
+":set expandtab
+:set tabstop=3
+:set shiftwidth=3
+:set autoindent
+:set smartindent
+:syn on
+:set noswapfile
+:set hlsearch
+set mouse=a
+
+
+colorscheme default 
+
+set list
+set listchars+=tab:┊\ 
+set listchars+=eol:\ 
+"set listchars+=space:·
+
+"set cursorcolumn
+"set cursorline
+
+:highlight HLONE ctermbg=green ctermfg=white
+:highlight HLTWO ctermbg=blue ctermfg=white
+
+nnoremap q :mat HLONE "<C-R><C-W>"<CR>
+nnoremap Q :2mat HLTWO "<C-R><C-W>"<CR>
+nnoremap qq :mat none<CR>
+nnoremap QQ :2mat none<CR>
+
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
+
+" nmap <silent> <A-Up> :wincmd k<CR>
+" nmap <silent> <A-Down> :wincmd j<CR>
+" nmap <silent> <A-Left> :wincmd h<CR>
+" nmap <silent> <A-Right> :wincmd l<CR>
+
+set splitbelow
+set splitright
+
+
+
+
+"folding settings
+"let php_folding=1
+"set foldmethod=syntax   "fold based on indent
+set foldnestmax=3      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+"set foldlevelstart=2
+
+set nocompatible               " be iMproved
+"filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+
+Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'zefei/vim-wintabs'
+
+
+"filetype plugin indent on     " required!
+
+:set encoding=utf-8
+
+if !has('gui_running')
+	set t_Co=256
+endif
+
+"let g:nerdtree_tabs_open_on_console_startup=1
+map <C-n> :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+nmap <silent> <C-u> :split<CR>
+nmap <silent> <C-i> :vsplit<CR>
+nmap <silent> <C-o> :CtrlPBuffer<CR>
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+:set tabstop=3
+
+"set noshowmode
+

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+function setupProfile {
+	if grep -q '/includes/index' ~/.bashrc
+	then
+		#do nothing
+		:
+	else
+		echo "
+
+#include dotfiles profiles
+if [ -f $DIR/includes/index ]; then
+    . $DIR/includes/index
+fi
+
+" >> ~/.bashrc
+	fi
+	if [ -d $DIR/profiles/commons/bash ]; then
+		rm -f $DIR/includes/commons
+		ln -sf $DIR/profiles/commons/bash $DIR/includes/commons
+	fi
+	if [ -f $DIR/profiles/commons/install ]; then
+		$DIR/profiles/commons/install		
+	fi
+
+	if [ -d $DIR/profiles/$1 ]; then
+		if [ -d $DIR/profiles/$1/bash ]; then
+			rm -f $DIR/includes/$1
+			ln -sf $DIR/profiles/$1/bash $DIR/includes/$1	
+		fi
+		if [ -f $DIR/profiles/$1/install ]; then
+			$DIR/profiles/$1/install		
+		fi
+	else 
+		echo "Profile doesn't exists"
+	fi
+}
+
+
+if [ -z "$1" ]; then
+	echo "Please provide install script name or 'profile profile_name'"
+else 
+	if [ $1 == 'profile' ]; then
+		if [ -z "$2" ]; then
+			echo "Please provide profile name"
+		else 
+			setupProfile $2
+		fi
+	else 
+		if [ -f "$DIR/scripts/$1" ]; then 
+			$DIR/scripts/$1
+		else
+			echo "Install script doesnt exists"
+		fi
+	fi
+fi

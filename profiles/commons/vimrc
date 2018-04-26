@@ -9,7 +9,9 @@
 :syn on
 :set noswapfile
 :set hlsearch
-"
+set mouse=a
+
+
 colorscheme default 
 
 set list
@@ -30,13 +32,17 @@ nnoremap QQ :2mat none<CR>
 
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
-"nnoremap <C-h> gT
-"nnoremap <C-l> gt
 
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+" nmap <silent> <A-Up> :wincmd k<CR>
+" nmap <silent> <A-Down> :wincmd j<CR>
+" nmap <silent> <A-Left> :wincmd h<CR>
+" nmap <silent> <A-Right> :wincmd l<CR>
+
+set splitbelow
+set splitright
+
+
+
 
 "folding settings
 "let php_folding=1
@@ -44,12 +50,7 @@ nmap <silent> <A-Right> :wincmd l<CR>
 set foldnestmax=3      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
-set foldlevelstart=2
-
-"nnoremap zq zfa}
-"nnoremap <bar> :set invnumber<CR>
-"nnoremap <Bslash> <C-w>
-
+"set foldlevelstart=2
 
 set nocompatible               " be iMproved
 "filetype off                   " required!
@@ -63,24 +64,34 @@ Bundle 'gmarik/vundle'
 
 " My Bundles here:
 
-Bundle 'tomtom/tcomment_vim'
-Bundle 'scrooloose/nerdtree'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'itchyny/lightline.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'zefei/vim-wintabs'
 
-
-set laststatus=2
 
 "filetype plugin indent on     " required!
 
 :set encoding=utf-8
-:set t_Co=256
+
+if !has('gui_running')
+	set t_Co=256
+endif
 
 "let g:nerdtree_tabs_open_on_console_startup=1
 map <C-n> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+
+nmap <silent> <C-u> :split<CR>
+nmap <silent> <C-i> :vsplit<CR>
+nmap <silent> <C-o> :CtrlPBuffer<CR>
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 :set tabstop=3
 
-set noshowmode
+"set noshowmode
 

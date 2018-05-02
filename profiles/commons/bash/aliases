@@ -53,7 +53,7 @@ alias cd-='cd -'
 
 
 # {{{ Overrides
-alias du='du -c -h'
+alias du='du -c -h -s'
 alias df='df -h'
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -P now'

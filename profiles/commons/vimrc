@@ -79,6 +79,10 @@ Plugin 'chrisbra/vim-diff-enhanced'
 
 :set encoding=utf-8
 
+:set tenc=utf8
+
+:set isprint=
+
 if !has('gui_running')
 	set t_Co=256
 endif

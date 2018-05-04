@@ -2,7 +2,7 @@
 PS1='[\u@\h \W]\$ '
 # }}}
 
-export TERM=screen-256color
+#export TERM=screen-256color
 
 # {{{  default editor
 export EDITOR="vim"

@@ -78,13 +78,14 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 sudo add-apt-repository ppa:twodopeshaggy/jarun
 
 
-
 sudo apt-get update
 
 sudo apt-get install googler
 
 ##vscode
 sudo apt-get install code 
+sudo sh -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+sudo sysctl -p
 
 ##zeal offline docs
 sudo apt-get install zeal 

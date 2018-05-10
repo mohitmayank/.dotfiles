@@ -11,11 +11,12 @@
 	filemode = false
 	filemode = true
 [diff]
-	tool = meld
+	tool = vimdiff
 [merge]
-	tool = mymeld
-[mergetool "mymeld"]
-	cmd = meld $LOCAL $MERGED $REMOTE
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
 [credential]
 	helper = cache --timeout=36000
 [difftool]
@@ -31,6 +32,6 @@
 	p = push
 	f = pull
 	co = checkout
-   mt = mergetool	
-   A = "add -A"	
+   mt = mergetool
+   A = "add -A"
    cm = "commit -m"

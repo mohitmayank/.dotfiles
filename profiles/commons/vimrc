@@ -13,9 +13,6 @@ set mouse=a
 set wrap
 set linebreak
 
-
-colorscheme default 
-
 set list
 set listchars+=tab:┊\ 
 set listchars+=eol:\ 
@@ -74,6 +71,17 @@ Plugin 'scrooloose/syntastic'
 Plugin 'zefei/vim-wintabs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'chrisbra/vim-diff-enhanced'
+Plugin 'altercation/vim-colors-solarized'
+
+syntax enable
+set background=dark
+colorscheme solarized
+
+" let g:solarized_diffmode="high"
+
+" if &diff
+" 	colorscheme evening
+" endif
 
 "filetype plugin indent on     " required!
 
@@ -95,8 +103,11 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <silent> <C-u> :split<CR>
 nmap <silent> <C-i> :vsplit<CR>
 nmap <silent> <C-o> :CtrlPBuffer<CR>
-nmap <silent> <C-p> :CtrlP<CR>
 
+let g:ctrlp_cmd='CtrlP :pwd'
+
+" nmap <silent> <C-p> :CtrlP<CR>
+let g:ctrlp_working_path_mode = 'ra'
 
 " menu completion in command mode on <tab>
 set wildmenu
@@ -130,9 +141,25 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\'
 
 :set tabstop=3
 
 "set noshowmode
+
+"write everything
+set autowriteall
+
+" use <ctrl> hjkl to move between buffers
+map <c-j> :bp <CR>
+map <c-k> :bn <CR>
+map <c-h> :bfirst <CR>
+map <c-l> :blast <CR>
+
+highlight DiffAdd    cterm=NONE ctermfg=0 ctermbg=2
+highlight DiffDelete cterm=NONE ctermfg=0 ctermbg=1
+highlight DiffChange cterm=NONE ctermfg=0 ctermbg=2
+highlight DiffText   cterm=NONE ctermfg=0 ctermbg=6
+
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 

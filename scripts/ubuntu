@@ -12,7 +12,7 @@ sudo apt-get update
 
 ##install ubuntu universe packages
 sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
-sudo apt-get install -y vim git tmux ytalk editorconfig dos2unix
+sudo apt-get install -y vim git tmux ytalk editorconfig dos2unix trash-cli xsel
 
 mkdir -p ~/.local/share/fonts
 

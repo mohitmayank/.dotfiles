@@ -32,6 +32,8 @@ alias ping5='ping -c 5'
 alias d='docker'
 alias dc='docker-compose'
 alias rp='realpath'
+alias tmux='tmux -u'
+
 
 # Nav
 alias ..="cd .."

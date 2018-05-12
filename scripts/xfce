@@ -7,34 +7,35 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 $DIR/ubuntu
 
-##setup home
-sudo chown "$ME":"$ME" /data
-rm -rf ~/Documents
-rm -rf ~/Downloads
-rm -rf ~/Music
-rm -rf ~/Pictures
-rm -rf ~/Videos
-
-mkdir -p /data/Documents
-mkdir -p /data/Downloads
-mkdir -p /data/Music
-mkdir -p /data/Pictures
-mkdir -p /data/Videos
-mkdir -p /data/bin
-mkdir -p /data/Movies
-mkdir -p /data/Recovery
-mkdir -p /data/tmp/scrot
-
-ln -s /data/Documents ~/Documents
-ln -s /data/Downloads ~/Downloads
-ln -s /data/Music ~/Music
-ln -s /data/Pictures ~/Pictures
-ln -s /data/Videos ~/Videos
-ln -s /data/bin ~/bin
-ln -s /data/Movies ~/Movies
-ln -s /data/Recovery ~/Recovery
-ln -s /data/tmp ~/tmp
-
+if [ -d /data ]; then
+	#setup home
+	sudo chown "$ME":"$ME" /data
+	rm -rf ~/Documents
+	rm -rf ~/Downloads
+	rm -rf ~/Music
+	rm -rf ~/Pictures
+	rm -rf ~/Videos
+	
+	mkdir -p /data/Documents
+	mkdir -p /data/Downloads
+	mkdir -p /data/Music
+	mkdir -p /data/Pictures
+	mkdir -p /data/Videos
+	mkdir -p /data/bin
+	mkdir -p /data/Movies
+	mkdir -p /data/Recovery
+	mkdir -p /data/tmp/scrot
+	
+	ln -s /data/Documents ~/Documents
+	ln -s /data/Downloads ~/Downloads
+	ln -s /data/Music ~/Music
+	ln -s /data/Pictures ~/Pictures
+	ln -s /data/Videos ~/Videos
+	ln -s /data/bin ~/bin
+	ln -s /data/Movies ~/Movies
+	ln -s /data/Recovery ~/Recovery
+	ln -s /data/tmp ~/tmp
+fi
 
 ##install ubuntu universe packages
 sudo apt-get install -y gparted python-pip

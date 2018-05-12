@@ -53,3 +53,15 @@ clock ()
 }
 # }}}
 #
+
+n() {
+	if [ $# -eq 0 ]; then
+		$EDITOR ~/Documents/notes/index.txt
+	else
+		$EDITOR ~/Documents/notes/"$*".txt
+	fi
+}
+
+nls() {
+	ls -c ~/Documents/notes/ | grep "$*"
+}

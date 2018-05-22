@@ -14,10 +14,3 @@ sudo apt-get update
 sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
 sudo apt-get install -y vim git tmux ytalk editorconfig dos2unix trash-cli xsel
 
-mkdir -p ~/.local/share/fonts
-
-for type in Bold Light Medium Regular Retina; do
-	wget -O ~/.local/share/fonts/FiraCode-${type}.ttf "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
-done
-
-fc-cache -f

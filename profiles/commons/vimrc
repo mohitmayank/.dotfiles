@@ -21,14 +21,6 @@ set listchars+=eol:\
 "set cursorcolumn
 "set cursorline
 
-:highlight HLONE ctermbg=green ctermfg=white
-:highlight HLTWO ctermbg=blue ctermfg=white
-
-nnoremap q :mat HLONE "<C-R><C-W>"<CR>
-nnoremap Q :2mat HLTWO "<C-R><C-W>"<CR>
-nnoremap qq :mat none<CR>
-nnoremap QQ :2mat none<CR>
-
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 
@@ -74,8 +66,9 @@ Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'altercation/vim-colors-solarized'
 
 syntax enable
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
+colorscheme desert
 
 " let g:solarized_diffmode="high"
 
@@ -98,6 +91,15 @@ endif
 "let g:nerdtree_tabs_open_on_console_startup=1
 map <C-n> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+highlight HLONE cterm=NONE ctermbg=green ctermfg=white
+highlight HLTWO cterm=NONE ctermbg=blue ctermfg=white
+
+nnoremap q :mat HLONE "<C-R><C-W>"<CR>
+nnoremap Q :2mat HLTWO "<C-R><C-W>"<CR>
+nnoremap qq :mat none<CR>
+nnoremap QQ :2mat none<CR>
+
 
 
 nmap <silent> <C-u> :split<CR>

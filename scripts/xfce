@@ -183,7 +183,7 @@ xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/c
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>Q' --type string --set 'thunar'
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>slash' --type string --set 'touchtoggle'
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Shift>Print' --type string --set 'xfce4-screenshooter -r'
-xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>T' --type string --set "xfce4-terminal --fullscreen --command='tmux -u'"
+xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>T' --type string --set "xfce4-terminal --fullscreen"
 
 ##XFCE WM Shortcuts
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Super>Left' --type string --set 'tile_left_key'

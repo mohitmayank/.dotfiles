@@ -1,0 +1,20 @@
+#!/bin/bash
+
+##Add self to suoders
+ME=$(whoami)
+sudo sh -c "echo '$ME ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$ME"
+
+sudo add-apt-repository -y ppa:jonathonf/vim
+sudo add-apt-repository -y ppa:twodopeshaggy/jarun
+
+##update and upgrade
+sudo apt-get update
+#sudo apt-get upgrade -y
+
+##install ubuntu universe packages
+sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
+sudo apt-get install -y vim git tmux editorconfig dos2unix
+sudo apt-get install -y speedtest-cli
+sudo apt-get install -y googler
+#sudo apt-get install -y ytalk 
+

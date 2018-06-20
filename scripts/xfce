@@ -45,7 +45,7 @@ sudo apt-get install -y filezilla chromium-browser clipit
 sudo apt-get install -y vlc calibre  
 sudo apt-get install -y openvpn network-manager-openvpn-gnome	
 sudo apt-get install -y openssh-server	
-sudo apt-get install -y ttf-mscorefonts-installer	
+# sudo apt-get install -y ttf-mscorefonts-installer	
 sudo apt-get install -y baobab #Disk Usage Analyzer
 
 
@@ -57,9 +57,12 @@ sudo apt-get remove -y --purge thunderbird evince evince-common parole pidgin mo
 
 mkdir -p ~/.local/share/fonts
 
-for type in Bold Light Medium Regular Retina; do
-	wget -O ~/.local/share/fonts/FiraCode-${type}.ttf "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
-done
+# for type in Bold Light Medium Regular Retina; do
+# 	wget -O ~/.local/share/fonts/FiraCode-${type}.ttf "https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true";
+# done
+
+wget https://fonts.google.com/download?family=Inconsolata -O /tmp/inconsolata.zip
+unzip inconsolata.zip -d ~/.local/share/fonts/
 
 fc-cache -f
 

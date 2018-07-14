@@ -62,7 +62,7 @@ mkdir -p ~/.local/share/fonts
 # done
 
 wget https://fonts.google.com/download?family=Inconsolata -O /tmp/inconsolata.zip
-unzip inconsolata.zip -d ~/.local/share/fonts/
+unzip /tmp/inconsolata.zip -d ~/.local/share/fonts/
 
 fc-cache -f
 

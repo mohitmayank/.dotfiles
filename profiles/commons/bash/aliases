@@ -55,7 +55,7 @@ alias cd-='cd -'
 
 
 # {{{ Overrides
-alias du='du -c -h -s'
+alias du='du -sch .[!.]* * |sort -h'
 alias df='df -h'
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -P now'
@@ -84,3 +84,5 @@ alias agupgrade='sudo apt-get upgrade'
 # {{{ System Services (Arch)
 #alias sys='sudo systemctl'
 # }}}
+
+alias starwars="telnet towel.blinkenlights.nl"

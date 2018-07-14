@@ -12,8 +12,8 @@ sudo apt-get update
 #sudo apt-get upgrade -y
 
 ##install ubuntu universe packages
-sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay
-sudo apt-get install -y vim git tmux editorconfig dos2unix trash-cli xsel unzip
+sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay cmatrix
+sudo apt-get install -y vim git tmux editorconfig dos2unix trash-cli xsel unzip git-extras
 sudo apt-get install -y speedtest-cli
 sudo apt-get install -y googler
 # sudo apt-get install -y ytalk 

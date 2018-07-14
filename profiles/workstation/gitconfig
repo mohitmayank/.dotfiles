@@ -36,3 +36,5 @@
    mt = mergetool
    A = "add -A"
    cm = "commit -m"
+	gl = "log --graph --oneline --decorate --all"
+

@@ -181,3 +181,4 @@ highlight DiffText   cterm=NONE ctermfg=0 ctermbg=6
 
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
+set rulerformat=%30(%f%=%l,%c%V\ %P%)

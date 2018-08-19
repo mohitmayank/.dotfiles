@@ -27,3 +27,4 @@ alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 
 alias term="xfce4-terminal --maximize"
 
+alias dockly="docker run -it -v /var/run/docker.sock:/var/run/docker.sock lirantal/dockly"

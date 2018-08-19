@@ -38,7 +38,7 @@ if [ -d /data ]; then
 fi
 
 ##install ubuntu universe packages
-sudo apt-get install -y gparted python-pip
+sudo apt-get install -y gparted
 # sudo apt-get install -y geany geany-plugins
 sudo apt-get install -y meld httpie
 sudo apt-get install -y gimp inkscape
@@ -49,8 +49,6 @@ sudo apt-get install -y openssh-server
 # sudo apt-get install -y ttf-mscorefonts-installer	
 sudo apt-get install -y baobab #Disk Usage Analyzer
 
-
-pip install --upgrade pip
 pip install rtv
 
 ##Remove packages

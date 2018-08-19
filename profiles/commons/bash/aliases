@@ -14,8 +14,9 @@ alias l='ls -ltrh'
 alias la='ls -ltrha'
 alias v='vim'
 alias vr='vim -M'
+alias vd='vimdiff'
 alias sv='sudo vim'
-alias h='history'
+alias h='hh'
 alias t='tail -f'
 alias c='clear'
 alias i='whoami'
@@ -32,8 +33,11 @@ alias ping5='ping -c 5'
 alias d='docker'
 alias dc='docker-compose'
 alias rp='realpath'
-alias tmux='tmux -u'
+alias f='nnn'
 
+##Tmux
+alias tmux='tmux -u'
+alias tls='tmux ls'
 
 # Nav
 alias ..="cd .."

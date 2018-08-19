@@ -1,9 +1,10 @@
 "let mapleader = "\"
 :set incsearch
 :set nu
-":set expandtab
-:set tabstop=3
-:set shiftwidth=3
+:set expandtab
+:set tabstop=2
+:set shiftwidth=2
+:set sts=2
 :set autoindent
 :set smartindent
 :syn on
@@ -65,6 +66,12 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
+" Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'styled-components/vim-styled-components'
+Plugin 'mattn/emmet-vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'felixhummel/setcolors.vim'
 
 syntax enable
 " set background=dark
@@ -101,8 +108,12 @@ endfunction
 :set isprint=
 
 if !has('gui_running')
-	set t_Co=256
+  set t_Co=256
 endif
+
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 "let g:nerdtree_tabs_open_on_console_startup=1
 map <C-n> :NERDTreeToggle<CR>
@@ -118,8 +129,8 @@ nnoremap QQ :2mat none<CR>
 
 
 
-nmap <silent> <C-u> :split<CR>
-nmap <silent> <C-i> :vsplit<CR>
+" nmap <silent> <C-u> :split<CR>
+" nmap <silent> <C-i> :vsplit<CR>
 nmap <silent> <C-o> :CtrlPBuffer<CR>
 
 let g:ctrlp_cmd='CtrlP :pwd'
@@ -182,3 +193,12 @@ highlight DiffText   cterm=NONE ctermfg=0 ctermbg=6
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 set rulerformat=%30(%f%=%l,%c%V\ %P%)
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()

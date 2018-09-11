@@ -9,7 +9,7 @@ $DIR/ubuntu
 
 if [ -d /data ]; then
 	#setup home
-	sudo chown "$ME":"$ME" /data
+	sudo chown -R "$ME":"$ME" /data
 	rm -rf ~/Documents
 	rm -rf ~/Downloads
 	rm -rf ~/Music

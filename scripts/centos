@@ -11,5 +11,5 @@ if [ -x "$(command -v yum-config-manager)" ]; then
 fi
 
 sudo yum -y install curl wget p7zip tree htop fortune-mod cowsay
-sudo yum -y install vim git tmux dos2unix xsel
+sudo yum -y install vim git tmux dos2unix xsel httpie
 # sudo yum -y install python2-speedtest-cli

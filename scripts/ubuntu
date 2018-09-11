@@ -17,10 +17,12 @@ sudo apt-get install -y python-pip
 sudo apt-get install -y curl gdebi wget p7zip unrar-free tree htop fortune cowsay cmatrix
 sudo apt-get install -y vim git tmux editorconfig dos2unix trash-cli xsel unzip git-extras nnn
 sudo apt-get install -y speedtest-cli 
-sudo apt-get install -y googler
+sudo apt-get install -y googler httpie
 sudo add-apt-repository ppa:ultradvorka/ppa && sudo apt-get update && sudo apt-get install hh && hh --show-configuration >> ~/.bashrc
 
 sudo pip install --upgrade pip
 sudo pip install glances
+sudo pip install howdoi
+
 # sudo apt-get install -y ytalk 
 

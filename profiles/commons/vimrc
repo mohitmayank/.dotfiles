@@ -69,7 +69,6 @@ Plugin 'Valloric/YouCompleteMe'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'
 " Plugin 'styled-components/vim-styled-components'
-Plugin 'mattn/emmet-vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'felixhummel/setcolors.vim'
 
@@ -84,6 +83,8 @@ colorscheme desert
 if &diff
 	colorscheme desert
 endif
+
+set completeopt-=preview
 
 set diffopt+=iwhite
 set diffexpr=DiffW()
@@ -202,3 +203,12 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
+function! C2cjs()
+  " Save cursor position
+  let l:save = winsaveview()
+  " Remove trailing whitespace
+  %s/import\s\+\(.\+\)\s\+from\s\+\('.\+'\);/const \1 = require(\2);/g
+  " Move cursor to original position
+  call winrestview(l:save)
+endfunction

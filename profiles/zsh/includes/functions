@@ -1,0 +1,55 @@
+# {{{ Compress a file using tar and gz
+# and use it with the syntax compress <file1>
+function compress {
+	if [ -z "$1" ]; then
+		#display usage if no parameters given
+		echo "Usage: compress <path/file_name>"
+	else
+		NAME=$(basename $1)
+		tar -zcvf $NAME.tar.gz $1
+	fi
+}
+# }}}
+
+# {{{ clock - A bash clock that can run in your terminal window.
+clock ()
+{
+	while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done
+}
+# }}}
+#
+
+n() {
+	if [ $# -eq 0 ]; then
+		$EDITOR ~/Documents/notes/index.txt
+	else
+		$EDITOR ~/Documents/notes/"$*".txt
+	fi
+}
+
+nls() {
+	ls -c ~/Documents/notes/ | grep "$*"
+}
+
+ta(){
+# ~/bin/tmux-myproject shell script
+# The Project name is also used as a session name (usually shorter)
+	if [ -z "$1" ]; then
+		SESSION_NAME=$(basename $(pwd))
+	else
+		SESSION_NAME=$1
+	fi
+
+	tmux has-session -t $SESSION_NAME 2>/dev/null
+	if [ "$?" -eq 1 ] ; then
+		 echo "No Session found.  Creating and configuring."
+		 tmux new-session -d -s $SESSION_NAME
+		 tmux source-file ~/bin/tmux-${SESSION_NAME}.conf
+		 popd
+	else
+		 echo "Session found.  Connecting."
+	fi
+	tmux attach-session -t $SESSION_NAME
+}
+
+function sst () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}

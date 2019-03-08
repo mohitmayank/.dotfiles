@@ -1,0 +1,26 @@
+ZSH_THEME="lukerandall"
+
+COMPLETION_WAITING_DOTS="true"
+DISABLE_AUTO_UPDATE="true"
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH="/home/mohit/.oh-my-zsh"
+export EDITOR='vim'
+export DISABLE_AUTO_TITLE='true'
+export KEYTIMEOUT=1
+
+export PATH="./node_modules/.bin:$PATH"
+
+bindkey -v
+unsetopt beep
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git git-extras extract Composer common-aliases docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore chucknorris tmuxinator
+)
+
+source $ZSH/oh-my-zsh.sh

@@ -1,0 +1,27 @@
+# /home/mohit/.config/tmuxinator/refrensapp.yml
+
+name: refrensapp
+root: ~/Documents/bizsuggest/git
+
+windows:
+  - serana:
+      root : /data/Documents/bizsuggest/git/serana 
+      layout: 1b77,191x48,0,0[191x11,0,0,2,191x36,0,12{46x36,0,12,3,144x36,47,12,4}]
+      panes:
+        - ./init
+        - ./init cli
+        - vim
+  - lydia:
+      root : /data/Documents/bizsuggest/git/lydia 
+      layout: 1b77,191x48,0,0[191x11,0,0,2,191x36,0,12{46x36,0,12,3,144x36,47,12,4}]
+      panes:
+        - ./init
+        - ./init cli
+        - vim
+  - courier:
+      root : /data/Documents/bizsuggest/git/courier 
+      layout: 1b77,191x48,0,0[191x11,0,0,2,191x36,0,12{46x36,0,12,3,144x36,47,12,4}]
+      panes:
+        - ./init
+        - ./init cli
+        - vim

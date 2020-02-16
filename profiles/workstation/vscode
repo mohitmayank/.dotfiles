@@ -4,11 +4,27 @@
     "editor.insertSpaces" : false,
     "editor.wordWrap" : "on",
     "editor.minimap.enabled": false,
-    "html.autoClosingTags": false,
     "window.menuBarVisibility":"toggle",
     "workbench.editor.enablePreview": false,
     "workbench.iconTheme": "null",
     "workbench.colorTheme": "Solarized Dark",
     "editor.fontFamily": "'Fira Code'",
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.packageManager": "yarn",
+    "html.format.endWithNewline": true,
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "cSpell.ignoreWords": [
+        "Refrens",
+        "mjml",
+        "refrens"
+    ],
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }

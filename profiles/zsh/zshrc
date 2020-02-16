@@ -1,4 +1,5 @@
 ZSH_THEME="lukerandall"
+# ZSH_THEME="agnoster"
 
 COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_UPDATE="true"
@@ -8,6 +9,7 @@ export ZSH="/home/mohit/.oh-my-zsh"
 export EDITOR='vim'
 export DISABLE_AUTO_TITLE='true'
 export KEYTIMEOUT=1
+export DEFAULT_USER='mohit'
 
 export PATH="./node_modules/.bin:$PATH"
 
@@ -20,7 +22,10 @@ unsetopt beep
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git git-extras extract Composer common-aliases docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore chucknorris tmuxinator ubuntu
+  git git-extras extract composer common-aliases docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore chucknorris tmuxinator ubuntu command-not-found fancy-ctrl-z
 )
+
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 source $ZSH/oh-my-zsh.sh

@@ -1,23 +1,23 @@
 # /home/mohit/.config/tmuxinator/refrenslib.yml
 
 name: refrenslib
-root: ~/Documents/bizsuggest/git
+root: ~/git/refrens
 
 windows:
   - talos:
-      root : /data/Documents/bizsuggest/git/talos 
+      root : ~/git/refrens/talos 
       layout: c264,191x48,0,0{59x48,0,0,17,131x48,60,0,18}
       panes:
-        - ./init
+        - git status
         - vim
   - birds:
-      root : /data/Documents/bizsuggest/git/birds 
+      root : ~/git/refrens/birds 
       layout: c264,191x48,0,0{59x48,0,0,17,131x48,60,0,18}
       panes:
-        - ./init
+        - git status
         - vim
   - fence:
-      root : /data/Documents/bizsuggest/git/fence 
+      root : ~/git/refrens/fence 
       layout: e6d0,191x48,0,0,21
       panes:
         - vim

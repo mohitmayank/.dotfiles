@@ -53,3 +53,51 @@ ta(){
 }
 
 function sst () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}
+
+function currentbranch() {
+  branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
+  branch_name="(unnamed branch)"     # detached HEAD
+  branch_name=${branch_name##refs/heads/}
+  echo $branch_name
+}
+
+function mastermerge() {
+  cbranch=$( currentbranch )
+  git push
+  git checkout master
+  git pull origin master
+  git merge $cbranch
+  git push origin master
+  git checkout $cbranch
+}
+
+function stagemerge() {
+  cbranch=$( currentbranch )
+  git checkout stage
+  git merge master
+  git push origin stage
+  git checkout $cbranch
+}
+
+function prodmerge() {
+  cbranch=$( currentbranch )
+  git checkout prod
+  git merge master
+  git push origin prod
+  git checkout $cbranch
+}
+
+function stagepush() {
+  mastermerge
+  stagemerge
+}
+
+function prodpush() {
+  stagepush
+  prodmerge
+}
+
+function gpurge() {
+  git remote prune origin
+  git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+}

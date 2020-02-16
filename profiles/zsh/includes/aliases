@@ -13,6 +13,8 @@ alias q='exit'
 alias rcopy='rsync -rltvcEh --progress --delete --timeout=0'
 alias ping5='ping -c 5'
 
+alias yc='yarn commit'
+
 ##Tmux
 alias tmux='tmux -u'
 alias tls='tmux ls'
@@ -28,12 +30,17 @@ alias cd-='cd -'
 
 
 # {{{ Overrides
-alias du='du -sch .[!.]* * |sort -h'
+alias du='du -sch * |sort -h'
 alias df='df -h'
 alias reboot='sudo reboot'
 alias turnoff='sudo shutdown -P now'
 alias service='sudo service'
 # }}}
+
+# {{{ oh-my-zsh overrides
+alias gdt='git difftool'
+alias gdm='git difftool master...$(current_branch)'
+#}}}
 
 
 # {{{ search

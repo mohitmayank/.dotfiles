@@ -1,6 +1,6 @@
 [user]
 	email = mayank.mohit@gmail.com
-	name = Mohit Jain
+	name = Mohit
 [credential]
 	helper = cache --timeout 2880000
 [push]
@@ -37,4 +37,5 @@
    A = "add -A"
    cm = "commit -m"
 	gl = "log --graph --oneline --decorate --all"
+	create-pull-request = !sh -c 'stash pull-request $0 $@'
 

@@ -1,11 +1,11 @@
 # /home/mohit/.config/tmuxinator/extrachai.yml
 
 name: extrachai
-root: ~/Documents/bizsuggest/git
+root: ~/git/refrens
 
 windows:
   - ec:
-      root : /data/Documents/bizsuggest/git/extrachai 
+      root : ~/git/refrens/extrachai
       layout: 1b77,191x48,0,0[191x11,0,0,2,191x36,0,12{46x36,0,12,3,144x36,47,12,4}]
       panes:
         - ./init

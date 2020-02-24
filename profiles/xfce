@@ -5,7 +5,7 @@ $DIR/profiles/ubuntu
 
 sudo apt-get remove -y --purge thunderbird evince evince-common parole pidgin mousepad gnome-sudoku libreoffice libreoffice-core libreoffice-writer libreoffice-calc
 
-sudo apt-get install -y xfce4-clipman gnome-control-center gparted calibre baobab  torbrowser-launcher virtualbox geany ttf-mscorefonts-installer
+sudo apt-get install -y xfce4-clipman gnome-control-center gparted calibre baobab  torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl
 mkdir -p ~/tmp/scrot
 mkdir -p ~/bin
 mkdir -p ~/Recovery
@@ -80,6 +80,9 @@ awk '{sub(/GRUB_CMDLINE_LINUX_DEFAULT=\".*?\"/,"GRUB_CMDLINE_LINUX_DEFAULT=\"\""
 sudo cp /tmp/grubdefault /etc/default/grub
 sudo update-grub2
 
+sudo rm -f /usr/bin/move-to-next-monitor
+sudo ln -s $DIR/conf/bin/move-to-next-monitor /usr/bin/move-to-next-monitor
+
 ##Xubuntu shortcuts
 #xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>L' --type string --set 'xflock4'
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>E' --type string --set 'geany'
@@ -87,6 +90,7 @@ xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/c
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>slash' --type string --set 'touchtoggle'
 #xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Shift>Print' --type string --set 'xfce4-screenshooter -r'
 xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>T' --type string --set "xfce4-terminal --fullscreen"
+xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/commands/custom/<Super>Home' --type string --set "move-to-next-monitor"
 
 ##XFCE WM Shortcuts
 #xfconf-query --create --channel xfce4-keyboard-shortcuts --property '/xfwm4/custom/<Super>Left' --type string --set 'tile_left_key'
@@ -118,6 +122,8 @@ xfce settings
 xfce-terminal settings
 
 add xfce4-clipman to startup apps
+
+setup vscode
 
 reboot
 

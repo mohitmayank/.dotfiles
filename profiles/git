@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+rm -rf ~/.gitconfig
+rm -rf ~/.gitignore
+ln -s  $DIR/conf/gitconfig ~/.gitconfig
+ln -s  $DIR/conf/gitignore ~/.gitignore

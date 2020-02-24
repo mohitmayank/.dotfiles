@@ -60,4 +60,17 @@ alias dockerui='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/dock
 
 alias starwars="telnet towel.blinkenlights.nl"
 
-alias mountmovies='sudo mount 192.168.0.2:/files /nfs/movies'
+alias timefresh='sudo service ntp stop; sudo ntpdate 3.ubuntu.pool.ntp.org; sudo service ntp start'
+
+# {{{ Misc
+##DOS to Unix
+alias d2u='find . -type f \! -path \*/\.svn/\* -exec dos2unix {} \;'
+## Purge Backup files
+alias pbkp='find ./ -name '*~' | xargs rm'
+# }}}
+
+# {{{ Remove .DS_Store files Recursively
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+# }}}
+
+

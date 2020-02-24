@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo snap install go --classic
+sudo snap install speed-test
+sudo snap install http

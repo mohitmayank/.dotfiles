@@ -186,7 +186,7 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
-let g:ctrlp_custom_ignore = 'node_modules\|build\|DS_Store'
+let g:ctrlp_custom_ignore = 'node_modules\|build\|DS_Store\|coverage\|build'
 " let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|git|hg|svn|optimized|compiled|build|node_modules)$'
 
 

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sudo apt-get install virtualbox
-curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | env IEVMS_VERSIONS="10 11 EDGE" bash

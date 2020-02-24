@@ -1,8 +1,28 @@
 #!/bin/bash
+DISTRO=unknown
+# Determine OS platform
+UNAME=$(uname | tr "[:upper:]" "[:lower:]")
+# If Linux, try to determine specific distribution
+if [ "$UNAME" == "linux" ]; then
+    # If available, use LSB to identify distribution
+    if [ -f /etc/lsb-release -o -d /etc/lsb-release.d ]; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
+    # Otherwise, use release info file
+    else
+        DISTRO=$(ls -d /etc/[A-Za-z]*[_-][rv]e[lr]* | grep -v "lsb" | cut -d'/' -f3 | cut -d'-' -f1 | cut -d'_' -f1)
+    fi
+fi
+# For everything else (or if above failed), just use generic identifier
+[ "$DISTRO" == "" ] && DISTRO=$UNAME
+unset UNAM
 
 if ! [ -x "$(command -v curl)" ]; then
-  echo 'Error: curl is not installed.' >&2
-  exit 1
+  if [ "$DISTRO" == "Ubuntu" ]; then
+    sudo apt install -y git curl
+  else 
+    echo 'Error: curl is not installed.' >&2
+    exit 1
+  fi
 fi
 
 if ! [ -x "$(command -v git)" ]; then
@@ -10,17 +30,29 @@ if ! [ -x "$(command -v git)" ]; then
   exit 1
 fi
 
-H=$(uname -n)
-mkdir -p ~/.ssh
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N '' -C "mohit@$H" 
-pubkey=$(<~/.ssh/id_rsa.pub)
+if [ -f ~/.ssh/id_rsa ]; then
+  echo 'rsa keys exits'
+else 
+  H=$(uname -n)
+  mkdir -p ~/.ssh
+  ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N '' -C "mohit@$H" 
+  pubkey=$(<~/.ssh/id_rsa.pub)
 
-json="{\"title\": \"mohit@$H\",\"key\": \"$pubkey\"}"
+  json="{\"title\": \"mohit@$H\",\"key\": \"$pubkey\"}"
   
-curl -u "mohitmayank" -H "Content-Type: application/json" -X POST -d "$json" https://api.github.com/user/keys
+  curl -u "mohitmayank" -H "Content-Type: application/json" -X POST -d "$json" https://api.github.com/user/keys
+fi
 
 cd ~
 
-git clone git@github.com:mohitmayank/.dotfiles.git
+if [ -d ~/.dotfiles ]; then
+  echo 'dotfile exits'
+else 
+  git clone git@github.com:mohitmayank/.dotfiles.git
+fi
 
 cd ~/.dotfiles
+
+read -p "Enter Profile: " profile
+echo "Installing $profile profile"
+~/.dotfiles/profiles/$profile

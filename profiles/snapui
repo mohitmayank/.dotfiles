@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sudo snap install slack --classic
+sudo snap install postman
+sudo snap install code --classic
+sudo snap install chromium
+sudo snap install opera
+sudo snap install insomnia
+sudo snap install mari0
+sudo snap install gimp
+sudo snap install inkscape
+sudo snap install vlc
+sudo snap install libreoffice
+sudo snap install zeal-casept
+sudo snap install skype --classic

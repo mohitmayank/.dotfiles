@@ -44,13 +44,13 @@ ta(){
   tmux has-session -t $SESSION_NAME 2>/dev/null
   if [ "$?" -eq 1 ] ; then
     echo "No Session found.  Creating and configuring."
-    tmux new-session -d -s $SESSION_NAME
+    tmux -u new-session -d -s $SESSION_NAME
     tmux source-file ~/bin/tmux-${SESSION_NAME}.conf
     popd
   else
     echo "Session found.  Connecting."
   fi
-  tmux attach-session -t $SESSION_NAME
+  tmux -u attach-session -t $SESSION_NAME
 }
 
 function sst () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}

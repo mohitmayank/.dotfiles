@@ -66,7 +66,7 @@ alias timefresh='sudo service ntp stop; sudo ntpdate 3.ubuntu.pool.ntp.org; sudo
 ##DOS to Unix
 alias d2u='find . -type f \! -path \*/\.svn/\* -exec dos2unix {} \;'
 ## Purge Backup files
-alias pbkp='find ./ -name '*~' | xargs rm'
+#alias pbkp='find ./ -name '*~' | xargs rm'
 # }}}
 
 # {{{ Remove .DS_Store files Recursively

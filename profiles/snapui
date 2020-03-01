@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo snap install snap-store
 sudo snap install slack --classic
 sudo snap install postman
 sudo snap install code --classic
@@ -13,3 +13,4 @@ sudo snap install vlc
 sudo snap install libreoffice
 sudo snap install zeal-casept
 sudo snap install skype --classic
+sudo snap install shotcut --classic

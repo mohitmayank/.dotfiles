@@ -3,14 +3,26 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 $DIR/profiles/ubuntu
 
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt update
+sudo apt install -y ubuntu-restricted-extras
+
 sudo apt-get remove -y --purge thunderbird evince evince-common parole pidgin mousepad gnome-sudoku libreoffice libreoffice-core libreoffice-writer libreoffice-calc
 
-sudo apt-get install -y xfce4-clipman gnome-control-center gparted calibre baobab  torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl
+sudo apt-get install -y xfce4-clipman gnome-control-center gparted calibre baobab  torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl kazam
 mkdir -p ~/tmp/scrot
 mkdir -p ~/bin
 mkdir -p ~/Recovery
 
 $DIR/profiles/snapui
+
+#add balena etcher repo
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+
+sudo apt-get update
+sudo apt-get install -y balena-etcher-electron
 
 #Gnone control center
 sudo sed -i '/^Exec=/d' /usr/share/applications/gnome-control-center.desktop
@@ -125,6 +137,13 @@ add xfce4-clipman to startup apps
 
 setup vscode
 
+install dropbox
+
+
+setup odrive
+
 reboot
 
 " > ~/Documents/notes/todo.txt
+
+sudo apt autoremove

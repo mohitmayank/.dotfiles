@@ -22,7 +22,7 @@ unsetopt beep
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git git-extras extract composer common-aliases docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore chucknorris tmuxinator ubuntu command-not-found fancy-ctrl-z
+  git git-extras extract composer common-aliases docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore tmuxinator ubuntu command-not-found fancy-ctrl-z
 )
 
 #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

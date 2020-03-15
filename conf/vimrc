@@ -76,13 +76,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
-" Plug 'styled-components/vim-styled-components'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'ryanoasis/vim-devicons'
 " Plug 'Quramy/vim-js-pretty-template'
 
 call plug#end()

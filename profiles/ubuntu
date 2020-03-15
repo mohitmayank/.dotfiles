@@ -13,7 +13,9 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt update
 sudo apt upgrade
 
-sudo apt install -y vim gdebi nodejs yarn tmux zsh fonts-powerline ruby python-pip wget p7zip unrar-free tree htop git curl editorconfig unzip git-extras nnn mongo-tools openssh-server
+sudo apt install -y vim gdebi tmux zsh fonts-powerline ruby python-pip wget p7zip unrar-free tree htop git curl editorconfig unzip git-extras nnn mongo-tools openssh-server
+sudo snap install node --channel=12/stable --classic
+sudo apt install -y yarn 
 
 $DIR/profiles/zsh
 $DIR/profiles/vim

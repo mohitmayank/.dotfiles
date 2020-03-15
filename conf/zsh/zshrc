@@ -1,5 +1,6 @@
-ZSH_THEME="lukerandall"
+# ZSH_THEME="lukerandall"
 # ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_UPDATE="true"

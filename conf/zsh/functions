@@ -113,3 +113,13 @@ function gitlast {
   git diff-tree --no-commit-id --name-only -r $COMMITID
 }
 # }}}
+#
+
+function auditweb {
+#lighthouse $1 --emulated-form-factor=desktop --chrome-flags="--headless" --output html --output-path /tmp/lighthousereport.html --no-enable-error-reporting && firefox /tmp/lighthousereport.html
+lighthouse --emulated-form-factor=desktop --chrome-flags="--headless" --output html --output-path /tmp/lighthousereport.html --no-enable-error-reporting --view $1
+}
+
+# function createpr {
+#   URL=https://bitbucket.org/bizsuggest/courier/pull-requests/new?source=sp21-mohit-images-alt&t=1
+# }

@@ -56,7 +56,7 @@ alias s1='find ./src/ -name "*.*" -print | xargs grep -sn --color=auto'
 alias e="f -e \"$EDITOR\""
 #}}}
 
-alias dockerui='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
+#alias dockerui='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
 
 alias starwars="telnet towel.blinkenlights.nl"
 

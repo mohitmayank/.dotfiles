@@ -10,7 +10,7 @@ sudo apt install -y ubuntu-restricted-extras
 
 sudo apt-get remove -y --purge thunderbird evince evince-common parole pidgin mousepad gnome-sudoku libreoffice libreoffice-core libreoffice-writer libreoffice-calc
 
-sudo apt-get install -y xfce4-clipman gnome-control-center gparted calibre baobab torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl kazam
+sudo apt-get install -y xfce4-clipman gnome-control-center gparted calibre baobab torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl kazam meld adb
 mkdir -p ~/tmp/scrot
 mkdir -p ~/bin
 mkdir -p ~/Recovery
@@ -28,6 +28,11 @@ sudo apt-get install -y balena-etcher-electron
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/googlechrome.deb
 sudo gdebi -n /tmp/googlechrome.deb
+
+mkdir -p /tmp/kitematic
+curl -s https://api.github.com/repos/docker/kitematic/releases/latest | grep Ubuntu.zip | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | wget -qi - -O /tmp/kitematic/kitematic.zip
+unzip /tmp/kitematic/kitematic.zip -d /tmp/kitematic/
+sudo gdebi -n /tmp/kitematic/*.deb
 
 #Gnone control center
 sudo sed -i '/^Exec=/d' /usr/share/applications/gnome-control-center.desktop
@@ -145,8 +150,6 @@ add xfce4-clipman to startup apps
 setup vscode
 
 install dropbox
-
-setup odrive
 
 reboot
 

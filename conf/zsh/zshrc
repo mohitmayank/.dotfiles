@@ -13,6 +13,7 @@ export KEYTIMEOUT=1
 export DEFAULT_USER='mohit'
 
 export PATH="./node_modules/.bin:$PATH"
+export PATH="/snap/bin:$PATH"
 
 bindkey -v
 unsetopt beep

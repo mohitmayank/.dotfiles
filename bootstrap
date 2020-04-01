@@ -36,6 +36,11 @@ else
   H=$(uname -n)
   mkdir -p ~/.ssh
   ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N '' -C "mohit@$H" 
+fi
+
+read -p "Copy keys to github (y/N) " copygithub
+
+if [ "$copygithub" == "y" ]; then
   pubkey=$(<~/.ssh/id_rsa.pub)
 
   json="{\"title\": \"mohit@$H\",\"key\": \"$pubkey\"}"
@@ -48,7 +53,11 @@ cd ~
 if [ -d ~/.dotfiles ]; then
   echo 'dotfile exits'
 else 
-  git clone git@github.com:mohitmayank/.dotfiles.git
+  if [ "$copygithub" == "y" ]; then
+    git clone git@github.com:mohitmayank/.dotfiles.git
+  else 
+    git clone https://github.com/mohitmayank/.dotfiles.git
+  fi
 fi
 
 cd ~/.dotfiles

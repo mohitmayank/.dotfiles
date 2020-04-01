@@ -19,7 +19,7 @@ if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
   #do nothing
   :
 else 
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
 echo "source $DIR/conf/zsh/zshrc" > ~/.zshrc

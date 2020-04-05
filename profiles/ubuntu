@@ -6,23 +6,27 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 ME=$(whoami)
 sudo sh -c "echo '$ME ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$ME"
 
-#add yarn
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 curl -sS https://dl.yarnpkg.cm/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 sudo apt update
 sudo apt -y upgrade
 
-sudo apt install -y vim gdebi tmux zsh fonts-powerline ruby python-pip wget p7zip unrar-free tree htop git curl editorconfig unzip git-extras nnn mongo-tools openssh-server mongodb-clients
-sudo snap install node --channel=12/stable --classic
-sudo apt install -y yarn 
+sudo apt install -y vim gdebi tmux zsh fonts-powerline ruby python-pip wget p7zip unrar-free tree htop git curl editorconfig unzip git-extras nnn mongo-tools openssh-server mongodb-clients httpie
+#sudo snap install node --channel=12/stable --classic
+sudo apt install -y nodejs yarn 
+
+sudo npm i -g speed-test
+
 # sudo apt install -y flatpak
 # flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 
 $DIR/profiles/zsh
 $DIR/profiles/vim
 $DIR/profiles/tmux
 $DIR/profiles/git
 $DIR/profiles/pip
-$DIR/profiles/snap
+# $DIR/profiles/snap
 

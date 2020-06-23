@@ -6,18 +6,18 @@ windows:
       root : ~/git/refrens/astrid 
       layout: dc46,191x48,0,0[191x11,0,0{94x11,0,0,2,96x11,95,0,11},191x36,0,12{46x36,0,12,5,144x36,47,12,6}]
       panes:
-        - ./init
-        - git status
-        - ./init cli
-        - vim
+        - yarn watch
+        - echo
+        - echo
+        - chuck_cow | lolcat
   - sithis:
       root : ~/git/refrens/sithis 
       layout: dc46,191x48,0,0[191x11,0,0{94x11,0,0,2,96x11,95,0,11},191x36,0,12{46x36,0,12,5,144x36,47,12,6}]
       panes:
-        - ./init
-        - git status
-        - ./init cli
-        - vim
+        - yarn watch
+        - echo
+        - echo
+        - chuck_cow | lolcat
   # - cicero:
   #     root : ~/git/refrens/cicero 
   #     layout: dc46,191x48,0,0[191x11,0,0{94x11,0,0,2,96x11,95,0,11},191x36,0,12{46x36,0,12,5,144x36,47,12,6}]

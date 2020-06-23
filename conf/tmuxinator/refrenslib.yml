@@ -4,18 +4,17 @@ root: ~/git/refrens
 windows:
   - talos:
       root : ~/git/refrens/talos 
-      layout: c264,191x48,0,0{59x48,0,0,17,131x48,60,0,18}
+      layout: e6d0,191x48,0,0,21
       panes:
-        - git status
-        - vim
+        - chuck_cow | lolcat
+
   - birds:
       root : ~/git/refrens/birds 
-      layout: c264,191x48,0,0{59x48,0,0,17,131x48,60,0,18}
+      layout: e6d0,191x48,0,0,21
       panes:
-        - git status
-        - vim
+        - chuck_cow | lolcat
   - fence:
       root : ~/git/refrens/fence 
       layout: e6d0,191x48,0,0,21
       panes:
-        - vim
+        - chuck_cow | lolcat

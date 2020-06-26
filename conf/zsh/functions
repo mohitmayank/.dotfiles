@@ -45,8 +45,7 @@ ta(){
   if [ "$?" -eq 1 ] ; then
     echo "No Session found.  Creating and configuring."
     tmux -u new-session -d -s $SESSION_NAME
-    tmux source-file ~/bin/tmux-${SESSION_NAME}.conf
-    popd
+    # popd
   else
     echo "Session found.  Connecting."
   fi

@@ -1,11 +1,120 @@
-sudo apt-get install chrome-gnome-shell
-echo "--------------------------------------------"
-echo "--------------------------------------------"
-echo "--------------------------------------------"
-echo ""
-echo ""
-echo ""
-echo "Install Gnome Shell Extn -> Dash to panel"
-echo ""
-echo ""
-echo ""
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+$DIR/profiles/ubuntu
+
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt update
+sudo apt install -y ubuntu-restricted-extras
+
+sudo apt-get remove -y --purge parole pidgin mousepad gnome-sudoku libreoffice libreoffice-core libreoffice-writer libreoffice-calc gnome-calendar
+
+sudo apt-get install -y thunderbird gparted calibre baobab torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl kazam meld adb zeal gnome-tweaks dconf-editor 
+mkdir -p ~/tmp/scrot
+mkdir -p ~/bin
+
+$DIR/profiles/snapui
+
+sudo npm i -g lighthouse
+
+#add balena etcher repear
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+
+sudo apt-get update
+sudo apt-get install -y balena-etcher-electron
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/googlechrome.deb
+sudo gdebi -n /tmp/googlechrome.deb
+
+#Fonts
+if [ -f ~/.local/share/fonts/Inconsolata-Bold.ttf ]; then
+  #do nothing
+  :
+else 
+  mkdir -p ~/.local/share/fonts
+  wget https://fonts.google.com/download?family=Inconsolata -O /tmp/inconsolata.zip
+  unzip /tmp/inconsolata.zip -d ~/.local/share/fonts/
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Inconsolata.zip -O /tmp/nerdfonts.zip
+  unzip /tmp/nerdfonts.zip -d ~/.local/share/fonts/
+  fc-cache -f
+fi
+
+#geany colorschemes
+wget https://github.com/codebrainz/geany-themes/archive/master.zip -O /tmp/geany.zip
+mkdir /tmp/geany-unzipped
+unzip /tmp/geany.zip -d /tmp/geany-unzipped/
+cp /tmp/geany-unzipped/geany-themes-master/colorschemes/* ~/.config/geany/colorschemes/
+
+#vscode fixes
+sudo sh -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+sudo sysctl -p
+
+if ! [ -f /opt/buu/buu ]; then
+##Buu Crawler (http://beamusup.com/seo-analytics-cro-tools/)
+cd /tmp
+sudo apt-get install -y default-jdk
+sudo mkdir -p /opt/buu
+sudo wget https://s3-eu-west-1.amazonaws.com/buu/buu.jar -O /opt/buu/buu.jar
+cat > /tmp/buu <<'EOL'
+#!/bin/bash
+java -Xms512m -Xmx4048m -jar /opt/buu/buu.jar
+EOL
+sudo mv /tmp/buu /opt/buu/buu
+sudo chmod +x /opt/buu/buu
+sudo chown root:root /opt/buu/buu
+sudo ln -s /opt/buu/buu /usr/bin/buu
+sudo cp $DIR/../assets/crawler.png /opt/buu/crawler.png
+cat > ~/.local/share/applications/buu.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=BUU SEO Crawler
+Exec=buu
+Icon=/opt/buu/crawler.png
+Terminal=false
+Type=Application
+Categories=Internet;
+EOL
+fi
+
+##copy touch toggle
+cat > /tmp/touchtoggle <<'EOL'
+#!/bin/sh
+synclient touchpadoff=$(synclient -l | grep TouchpadOff | awk '{print $3==0?1:0}')
+EOL
+sudo mv /tmp/touchtoggle /usr/bin/touchtoggle
+sudo chmod +x /usr/bin/touchtoggle
+sudo chown root:root /usr/bin/touchtoggle
+
+#sudo rm -f /usr/bin/move-to-next-monitor
+#sudo ln -s $DIR/conf/bin/move-to-next-monitor /usr/bin/move-to-next-monitor
+
+mkdir -p ~/Documents/notes
+
+echo "
+https://ci.popcorntime.sh/job/Popcorn-Time-Desktop/lastSuccessfulBuild/artifact/build/
+
+setup firefox
+
+https://www.mongodb.com/download-center/compass?jmp=docs
+
+setup cromium
+
+setup gnome online accounts
+
+xfce settings
+
+xfce-terminal settings
+
+add xfce4-clipman to startup apps
+
+setup vscode
+
+install dropbox
+
+reboot
+
+" > ~/Documents/notes/todo.txt
+
+sudo apt autoremove

@@ -13,7 +13,7 @@
 [diff]
 	tool = vimdiff
 [merge]
-	tool = vimdiff
+	tool = meld
 	conflictstyle = diff3
 [mergetool]
 	prompt = true
@@ -39,3 +39,8 @@
 	gl = "log --graph --oneline --decorate --all"
 	create-pull-request = !sh -c 'stash pull-request $0 $@'
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

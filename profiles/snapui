@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo snap install snap-store
 sudo snap install slack --classic
 sudo snap install postman
 sudo snap install code --classic
@@ -7,7 +6,7 @@ sudo snap install chromium
 sudo snap install opera
 sudo snap install insomnia
 sudo snap install mari0
-# sudo snap install gimp
+sudo snap install gimp
 sudo snap install inkscape
 sudo snap install vlc
 mkdir -p ~/snap/vlc/common/.cache/vlc
@@ -16,4 +15,5 @@ sudo snap install zeal-casept
 sudo snap install skype --classic
 sudo snap install shotcut --classic
 sudo snap install telegram-desktop
-sudo snap install glimpse-editor
+sudo snap install discord
+sudo snap install zoom-client

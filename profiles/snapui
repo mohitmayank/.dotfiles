@@ -17,3 +17,4 @@ sudo snap install shotcut --classic
 sudo snap install telegram-desktop
 sudo snap install discord
 sudo snap install zoom-client
+flatpak install -y flathub com.github.bilelmoussaoui.Authenticator

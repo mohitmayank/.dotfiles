@@ -17,6 +17,8 @@ sudo apt install -y vim gdebi tmux zsh fonts-powerline ruby wget p7zip unrar-fre
 #sudo snap install node --channel=12/stable --classic
 sudo apt install -y nodejs yarn 
 sudo apt install -y python3-pip 
+sudo apt install -y flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 sudo npm i -g speed-test
 

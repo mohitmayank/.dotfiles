@@ -6,14 +6,16 @@ windows:
       root : /tmp/ 
       layout: e6d0,191x48,0,0,21
       panes:
-        - sst refrens
-   - sithis:
-      root : /tmp/ 
-      layout: e6d0,191x48,0,0,21
-      panes:
-        - sst sithis
+        - sst refrens-cron-runner
+
    - bizsuggest:
       root : /tmp/ 
       layout: e6d0,191x48,0,0,21
       panes:
         - sst bizsuggest
+
+   - pulumi:
+      root : /home/mohit/git/refrens/pulumi
+      layout: e6d0,191x48,0,0,21
+      panes:
+        - git status

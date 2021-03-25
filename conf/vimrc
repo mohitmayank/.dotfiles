@@ -94,11 +94,11 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 syntax enable
-" set background=dark
-" colorscheme solarized
+set background=dark
+colorscheme solarized
 " colorscheme primary
 " colorscheme desert
-colorscheme default
+" colorscheme default
 
 " let g:solarized_diffmode="high"
 
@@ -292,7 +292,7 @@ set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300

@@ -52,6 +52,18 @@ ta(){
   tmux -u attach-session -t $SESSION_NAME
 }
 
+ts(){
+  if [ -z "$1" ]; then
+    echo "need a repo"
+  else
+    REPO=$1
+  fi
+  echo $REPO
+  tmux new-window -n $REPO -c ~/git/refrens/$REPO
+  tmux send-keys 'npm run watch' 'C-m'
+  tmux split-window -h -p 70 -c ~/git/refrens/$REPO
+}
+
 function sst () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}
 
 function currentbranch() {

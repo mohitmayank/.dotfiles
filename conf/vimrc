@@ -95,7 +95,7 @@ call plug#end()
 
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 " colorscheme primary
 " colorscheme desert
 " colorscheme default
@@ -386,5 +386,3 @@ nnoremap <silent> <space>l :<C-u>CocList<cr>
 
 nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
-
-

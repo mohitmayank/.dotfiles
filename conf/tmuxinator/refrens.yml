@@ -2,9 +2,7 @@ name: refrens
 root: ~/git/refrens
 
 windows:
-  - serana:
-      root : ~/git/refrens/serana
-      layout: 5e17,174x43,0,0{52x43,0,0,53,121x43,53,0,54}
+  - refrens:
+      root : ~/git/refrens
       panes:
-        - npm run watch
         - chuck_cow | lolcat

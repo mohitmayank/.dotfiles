@@ -18,4 +18,5 @@ sudo snap install telegram-desktop
 sudo snap install discord
 sudo snap install zoom-client
 sudo snap install spotify
+sudo snap install redis-desktop-manager
 flatpak install -y flathub com.github.bilelmoussaoui.Authenticator

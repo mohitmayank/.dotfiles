@@ -130,3 +130,8 @@ function auditweb {
 #lighthouse $1 --emulated-form-factor=desktop --chrome-flags="--headless" --output html --output-path /tmp/lighthousereport.html --no-enable-error-reporting && firefox /tmp/lighthousereport.html
 lighthouse --emulated-form-factor=desktop --chrome-flags="--headless" --output html --output-path /tmp/lighthousereport.html --no-enable-error-reporting --view $1
 }
+
+function lint {
+  npx prettier --write $1
+  npx eslint $1
+}

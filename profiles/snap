@@ -2,4 +2,5 @@
 
 sudo snap install go --classic
 sudo snap install speed-test
+sudo snap install fast
 sudo snap install http

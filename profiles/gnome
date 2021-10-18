@@ -18,13 +18,6 @@ $DIR/profiles/snapui
 
 sudo npm i -g lighthouse
 
-#add balena etcher repear
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
-
-sudo apt-get update
-sudo apt-get install -y balena-etcher-electron
-
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/googlechrome.deb
 sudo gdebi -n /tmp/googlechrome.deb
 

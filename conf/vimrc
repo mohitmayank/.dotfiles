@@ -84,7 +84,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'felixhummel/setcolors.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'chrisbra/csv.vim'
 " Plug 'google/vim-colorscheme-primary'

@@ -6,9 +6,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 ME=$(whoami)
 sudo sh -c "echo '$ME ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/$ME"
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-curl -sS https://dl.yarnpkg.cm/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+#curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
 
 sudo apt update
 sudo apt -y upgrade
@@ -18,12 +18,12 @@ sudo apt install -y mongo-tools mongodb-clients
 sudo apt install -y openssh-server 
 sudo apt install -y httpie fortune-mod cowsay lolcat
 #sudo snap install node --channel=12/stable --classic
-sudo apt install -y nodejs yarn 
+sudo apt install -y nodejs 
 sudo apt install -y python3-pip 
 sudo apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo npm i -g speed-test
+sudo npm i -g speed-test yarn
 
 # sudo apt install -y flatpak
 # flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

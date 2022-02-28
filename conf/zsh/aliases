@@ -1,5 +1,6 @@
 # {{{ Common Shortcuts
 alias v='vim'
+alias nv='nvim'
 alias vr='vim -M'
 alias vd='vimdiff'
 alias sv='sudo vim'
@@ -74,4 +75,7 @@ alias d2u='find . -type f \! -path \*/\.svn/\* -exec dos2unix {} \;'
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 # }}}
 
+alias ncurefrens="ncu -ui '/@refrens\/.*/' && npm i"
 
+
+alias mp4tomp3='for f in *.mp4 ; do ffmpeg -i "$f" -acodec libmp3lame -q:a 2 "${f%.*}.mp3"; done'

@@ -65,7 +65,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 " Plug 'w0rp/ale'
 " Plug 'zefei/vim-wintabs'
 Plug 'editorconfig/editorconfig-vim'
@@ -89,7 +89,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'chrisbra/csv.vim'
 " Plug 'google/vim-colorscheme-primary'
 " Plug 'Quramy/vim-js-pretty-template'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 
@@ -267,10 +267,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_typescript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npx eslint --'
-let g:syntastic_typescript_eslint_exe = 'npx eslint --'
+let g:syntastic_javascript_eslint_exe = 'yarn eslint --'
 let g:jsx_ext_required = 0
+
 
 let g:airline_section_x=''
 let g:airline_section_y=''
@@ -313,7 +312,7 @@ set autowriteall
 "----------------------------------"
 "--------- COC VIM ----------------"
 "----------------------------------"
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-css' ]
+" let g:coc_global_extensions = [ 'coc-tsserver' ]
 
 "it fail if hidden is not set.
 set hidden

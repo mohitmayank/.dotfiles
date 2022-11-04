@@ -8,82 +8,53 @@ sudo add-apt-repository multiverse
 sudo apt update
 sudo apt install -y ubuntu-restricted-extras
 
-sudo apt-get remove -y --purge parole pidgin mousepad gnome-sudoku libreoffice libreoffice-core libreoffice-writer libreoffice-calc gnome-calendar
+sudo apt-get remove -y --purge gnome-sudoku gnome-calendar gnome-todo gnome-mines gnome-mahjongg aisleriot shotwell totem totem-plugins gedit
 
-sudo apt-get install -y thunderbird gparted calibre baobab torbrowser-launcher virtualbox geany ttf-mscorefonts-installer xdotool wmctrl kazam meld adb zeal gnome-tweaks dconf-editor 
-mkdir -p ~/tmp/scrot
-mkdir -p ~/bin
+sudo apt-get install -y thunderbird gparted calibre torbrowser-launcher geany ttf-mscorefonts-installer meld zeal gnome-tweaks dconf-editor chromium-browser vlc gimp 
+
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install -y appimagelauncher
+
+# sudo apt-get install -y kazam adb wmctrl xdotool
+
+# FILESDIRECTORY='/home/files'
+# if [ -d "$FILESDIRECTORY" ]; then
+#   mkdir -p ${FILESDIRECTORY}/bin
+#   mkdir -p ${FILESDIRECTORY}/Applications
+#   cd ~
+#   ln -s ../files/bin
+#   ln -s ../files/Applications
+# else
+#   mkdir -p ~/bin
+#   mkdir -p ~/Applications
+# fi
+
+echo 'enabled=False' > ~/.config/user-dirs.conf
 
 $DIR/profiles/snapui
 
 sudo npm i -g lighthouse
 
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/googlechrome.deb
-sudo gdebi -n /tmp/googlechrome.deb
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/googlechrome.deb
+# sudo gdebi -n /tmp/googlechrome.deb
 
 #Fonts
-if [ -f ~/.local/share/fonts/Inconsolata-Bold.ttf ]; then
-  #do nothing
-  :
-else 
-  mkdir -p ~/.local/share/fonts
-  wget https://fonts.google.com/download?family=Inconsolata -O /tmp/inconsolata.zip
-  unzip /tmp/inconsolata.zip -d ~/.local/share/fonts/
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Inconsolata.zip -O /tmp/nerdfonts.zip
-  unzip /tmp/nerdfonts.zip -d ~/.local/share/fonts/
-  fc-cache -f
-fi
+mkdir -p ~/.local/share/fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip -O /tmp/nerdfonts.zip
+unzip /tmp/nerdfonts.zip -d ~/.local/share/fonts/
+fc-cache -f
 
 #geany colorschemes
-wget https://github.com/codebrainz/geany-themes/archive/master.zip -O /tmp/geany.zip
-mkdir /tmp/geany-unzipped
-unzip /tmp/geany.zip -d /tmp/geany-unzipped/
-cp /tmp/geany-unzipped/geany-themes-master/colorschemes/* ~/.config/geany/colorschemes/
+wget https://raw.github.com/geany/geany-themes/master/colorschemes/solarized-dark.conf -O ~/.config/geany/colorschemes/solarized-dark.conf
 
 #vscode fixes
 sudo sh -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 sudo sysctl -p
 
-if ! [ -f /opt/buu/buu ]; then
-##Buu Crawler (http://beamusup.com/seo-analytics-cro-tools/)
-cd /tmp
-sudo apt-get install -y default-jdk
-sudo mkdir -p /opt/buu
-sudo wget https://s3-eu-west-1.amazonaws.com/buu/buu.jar -O /opt/buu/buu.jar
-cat > /tmp/buu <<'EOL'
-#!/bin/bash
-java -Xms512m -Xmx4048m -jar /opt/buu/buu.jar
-EOL
-sudo mv /tmp/buu /opt/buu/buu
-sudo chmod +x /opt/buu/buu
-sudo chown root:root /opt/buu/buu
-sudo ln -s /opt/buu/buu /usr/bin/buu
-sudo cp $DIR/../assets/crawler.png /opt/buu/crawler.png
-cat > ~/.local/share/applications/buu.desktop <<EOL
-[Desktop Entry]
-Encoding=UTF-8
-Name=BUU SEO Crawler
-Exec=buu
-Icon=/opt/buu/crawler.png
-Terminal=false
-Type=Application
-Categories=Internet;
-EOL
-fi
-
-##copy touch toggle
-cat > /tmp/touchtoggle <<'EOL'
-#!/bin/sh
-synclient touchpadoff=$(synclient -l | grep TouchpadOff | awk '{print $3==0?1:0}')
-EOL
-sudo mv /tmp/touchtoggle /usr/bin/touchtoggle
-sudo chmod +x /usr/bin/touchtoggle
-sudo chown root:root /usr/bin/touchtoggle
-
-#sudo rm -f /usr/bin/move-to-next-monitor
-#sudo ln -s $DIR/conf/bin/move-to-next-monitor /usr/bin/move-to-next-monitor
-
-mkdir -p ~/Documents/notes
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code
 
 echo "
 https://ci.popcorntime.sh/job/Popcorn-Time-Desktop/lastSuccessfulBuild/artifact/build/
@@ -92,19 +63,9 @@ setup firefox
 
 https://www.mongodb.com/download-center/compass?jmp=docs
 
-setup cromium
-
 setup gnome online accounts
 
-xfce settings
-
-xfce-terminal settings
-
-add xfce4-clipman to startup apps
-
 setup vscode
-
-install dropbox
 
 reboot
 

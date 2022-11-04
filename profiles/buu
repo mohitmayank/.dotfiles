@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if ! [ -f /opt/buu/buu ]; then
+##Buu Crawler (http://beamusup.com/seo-analytics-cro-tools/)
+cd /tmp
+sudo apt-get install -y default-jdk
+sudo mkdir -p /opt/buu
+sudo wget https://s3-eu-west-1.amazonaws.com/buu/buu.jar -O /opt/buu/buu.jar
+cat > /tmp/buu <<'EOL'
+#!/bin/bash
+java -Xms512m -Xmx4048m -jar /opt/buu/buu.jar
+EOL
+sudo mv /tmp/buu /opt/buu/buu
+sudo chmod +x /opt/buu/buu
+sudo chown root:root /opt/buu/buu
+sudo ln -s /opt/buu/buu /usr/bin/buu
+sudo cp $DIR/../assets/crawler.png /opt/buu/crawler.png
+cat > ~/.local/share/applications/buu.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=BUU SEO Crawler
+Exec=buu
+Icon=/opt/buu/crawler.png
+Terminal=false
+Type=Application
+Categories=Internet;
+EOL
+fi

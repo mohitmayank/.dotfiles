@@ -11,7 +11,7 @@ alias rr='rm -rf'
 alias cr='cp -r'
 alias x='exit'
 alias q='exit'
-alias rcopy='rsync -rltvcEh --progress --delete --timeout=0'
+alias rcopy='rsync -rltvcEhz --progress --delete --timeout=0'
 alias ping5='ping -c 5'
 
 alias yc='yarn commit'
@@ -52,6 +52,7 @@ alias pf='ps -ef | grep'
 alias hf='history | grep'
 alias lf='ls -ltrha | grep'
 alias s1='find ./src/ -name "*.*" -print | xargs grep -sn --color=auto'
+alias frf='find . -name "*.*" -print | xargs perl -i -pe'
 # }}}
 
 # {{{ fasd

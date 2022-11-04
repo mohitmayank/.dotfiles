@@ -8,9 +8,9 @@ sudo add-apt-repository multiverse
 sudo apt update
 sudo apt install -y ubuntu-restricted-extras
 
-sudo apt-get remove -y --purge gnome-sudoku gnome-calendar gnome-todo gnome-mines gnome-mahjongg aisleriot shotwell totem totem-plugins gedit
+sudo apt-get remove -y --purge gnome-sudoku gnome-calendar gnome-todo gnome-mines gnome-mahjongg aisleriot shotwell totem gedit rhythmbox
 
-sudo apt-get install -y thunderbird gparted calibre torbrowser-launcher geany ttf-mscorefonts-installer meld zeal gnome-tweaks dconf-editor chromium-browser vlc gimp 
+sudo apt-get install -y thunderbird gparted calibre torbrowser-launcher geany ttf-mscorefonts-installer meld zeal gnome-tweaks dconf-editor chromium-browser vlc gimp gnome-shell-extension-manager
 
 sudo add-apt-repository ppa:appimagelauncher-team/stable
 sudo apt update

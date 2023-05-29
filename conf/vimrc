@@ -24,6 +24,18 @@ set listchars+=eol:\
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 " nmap <silent> <A-Up> :wincmd k<CR>
 " nmap <silent> <A-Down> :wincmd j<CR>
 " nmap <silent> <A-Left> :wincmd h<CR>
@@ -181,20 +193,20 @@ nnoremap <F10> :b <C-Z>
 " \l       : list buffers
 " \b \f \g : go back/forward/last-used
 " \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
+" nnoremap <Leader>l :ls<CR>
+" nnoremap <Leader>b :bp<CR>
+" nnoremap <Leader>f :bn<CR>
+" nnoremap <Leader>g :e#<CR>
+" nnoremap <Leader>1 :1b<CR>
+" nnoremap <Leader>2 :2b<CR>
+" nnoremap <Leader>3 :3b<CR>
+" nnoremap <Leader>4 :4b<CR>
+" nnoremap <Leader>5 :5b<CR>
+" nnoremap <Leader>6 :6b<CR>
+" nnoremap <Leader>7 :7b<CR>
+" nnoremap <Leader>8 :8b<CR>
+" nnoremap <Leader>9 :9b<CR>
+" nnoremap <Leader>0 :10b<CR>
 
 let g:ctrlp_custom_ignore = 'node_modules\|build\|DS_Store\|coverage\|out\|dist\|.next\|\.\/icons'
 " let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|git|hg|svn|optimized|compiled|build|node_modules)$'
@@ -379,6 +391,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>

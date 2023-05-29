@@ -13,7 +13,7 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt update
 sudo apt -y upgrade
 
-sudo apt install -y vim gdebi tmux zsh fonts-powerline ruby wget p7zip unrar-free tree htop git curl editorconfig unzip git-extras nnn software-properties-common apt-transport-https
+sudo apt install -y vim neovim gdebi tmux zsh fonts-powerline ruby wget p7zip unrar-free tree htop git curl editorconfig unzip git-extras nnn software-properties-common apt-transport-https 
 sudo apt install -y mongo-tools mongodb-clients 
 sudo apt install -y openssh-server 
 sudo apt install -y httpie fortune-mod cowsay lolcat

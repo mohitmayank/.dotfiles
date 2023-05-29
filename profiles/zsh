@@ -29,4 +29,7 @@ echo "source $DIR/conf/zsh/aliases" >> ~/.zshrc
 rm -f ~/.p10k.zsh
 ln -s $DIR/conf/zsh/p10k.zsh ~/.p10k.zsh
 
+touch ~/.zshenv
+mkdir -p ~/.zsh/completion
+
 chsh

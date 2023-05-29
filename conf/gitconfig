@@ -13,7 +13,7 @@
   filemode = false
   filemode = true
 [diff]
-  tool = vimdiff
+  tool = nvimdiff 
 [merge]
   tool = meld
   conflictstyle = diff3

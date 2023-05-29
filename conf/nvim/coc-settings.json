@@ -1,0 +1,8 @@
+{
+  "suggest.enablePreview": true,
+  "tsserver.useLocalTsdk": true,
+  "tsserver.npm": "/home/mohit/.nvm/versions/node/v18.16.0/bin/npm",
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "tsserver.enableTelemetry": true
+}

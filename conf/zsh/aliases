@@ -1,5 +1,5 @@
 # {{{ Common Shortcuts
-alias v='vim'
+alias v='nvim'
 alias nv='nvim'
 alias vr='vim -M'
 alias vd='vimdiff'

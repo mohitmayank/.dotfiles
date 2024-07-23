@@ -406,3 +406,5 @@ nmap <leader>rn <Plug>(coc-rename)
 " noremap <Down> <Nop>
 " noremap <Left> <Nop>
 " noremap <Right> <Nop>
+"
+map <CS-I> :CocCommand prettier.formatFile<CR><CR>

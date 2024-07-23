@@ -66,6 +66,17 @@ ts(){
 
 function sst () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}
 
+tss(){
+  if [ -z "$1" ]; then
+    echo "need a ssh config"
+  else
+    REPO=$1
+  fi
+  echo $REPO
+  tmux new-window -n $REPO -c /tmp
+  tmux send-keys 'sst ' $REPO 'C-m'
+}
+
 function currentbranch() {
   branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
   branch_name="(unnamed branch)"     # detached HEAD

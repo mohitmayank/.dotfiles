@@ -13,4 +13,4 @@ else
 fi
 
 vim -c 'PlugInstall' -c 'qa!'
-vim -c 'CocInstall -sync coc-json coc-html coc-css coc-styled-components coc-eslint coc-yaml coc-highlight coc-snippets coc-tsserver |q'
+vim -c 'CocInstall -sync coc-json coc-html coc-css coc-styled-components coc-eslint coc-yaml coc-highlight coc-snippets coc-prettier coc-tsserver |q'

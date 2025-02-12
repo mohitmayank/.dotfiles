@@ -1,0 +1,19 @@
+!/bin/bash
+
+FILESDIRECTORY='/home/files'
+if [ -d "$FILESDIRECTORY" ]; then
+  mkdir -p ${FILESDIRECTORY}/bin
+  mkdir -p ${FILESDIRECTORY}/Applications
+  mkdir -p ${FILESDIRECTORY}/git
+  mkdir -p ${FILESDIRECTORY}/Movies
+  cd ~
+  ln -s ../files/bin
+  ln -s ../files/Applications
+  ln -s ../files/git
+  ln -s ../files/Movies
+else
+  mkdir -p ~/bin
+  mkdir -p ~/Applications
+  mkdir -p ~/git
+  mkdir -p ~/Movies
+fi

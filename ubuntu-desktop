@@ -1,0 +1,56 @@
+#!/bin/bash
+
+H=$(uname -n)
+ME=$(whoami)
+
+# Import function files
+source "$(dirname "$0")/src/lib/ssh.sh"
+source "$(dirname "$0")/src/lib/github.sh"
+source "$(dirname "$0")/src/lib/clone-dotfiles.sh"
+source "$(dirname "$0")/src/lib/sudo.sh"
+
+source "$(dirname "$0")/src/apt.sh"
+source "$(dirname "$0")/src/snap.sh"
+source "$(dirname "$0")/src/pip.sh"
+source "$(dirname "$0")/src/nvm.sh"
+source "$(dirname "$0")/src/vscode.sh"
+source "$(dirname "$0")/src/chrome.sh"
+source "$(dirname "$0")/src/ubuntu-extras.sh"
+source "$(dirname "$0")/src/zsh.sh"
+source "$(dirname "$0")/src/tmux.sh"
+
+# Main script execution
+main() {
+  sudo apt update
+  sudo apt install -y git curl stow
+
+  install_gh_cli
+  generate_ssh_keys
+  authenticate_with_github
+  add_ssh_key_to_github
+  clone_dotfiles_repo
+
+  add_to_sudo
+
+  stow -v -t ~ "$(dirname "$0")/etc"
+
+  install_apt_commons
+  install_apt_ui
+  install_snaps
+  install_pip_packages
+  install_fonts
+  vscode_fix
+  nvm
+  chrome
+  vscode
+
+  setup_tmux
+  setup_zsh
+
+  sudo apt autoremove
+}
+
+# Check if script is being run directly
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  main "$@"
+fi

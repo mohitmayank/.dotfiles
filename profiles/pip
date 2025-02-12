@@ -1,6 +1,0 @@
-#!/bin/bash
-
-sudo pip3 install --upgrade pip
-sudo pip3 install glances
-sudo pip3 install howdoi
-sudo pip3 install rtv

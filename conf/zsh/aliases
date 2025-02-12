@@ -48,6 +48,10 @@ alias gdm='git difftool master...$(current_branch)'
 # {{{ search
 alias f1='find . -name "*.*" -print | xargs grep -sn --color=auto'
 alias f2='find . -name'
+alias f3='find . \
+  -type d \( -name ".git" -o -name "node_modules" \) -prune -o \
+  -type f \( ! -name "*.archive" ! -name "*.tar.gz" \) -print \
+  | xargs grep -sn --color=auto'
 alias pf='ps -ef | grep'
 alias hf='history | grep'
 alias lf='ls -ltrha | grep'

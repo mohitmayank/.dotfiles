@@ -27,6 +27,7 @@ install_apt_commons() {
     openssh-server \
     libssl-dev \
     httpie \
+    ruby \
     pipx
 }
 
@@ -60,5 +61,7 @@ install_apt_ui() {
     dconf-editor \
     vlc \
     gimp \
-    gnome-shell-extension-manager
+    simple-scan \
+    gnome-shell-extension-manager \
+    libreoffice
 }

@@ -7,3 +7,8 @@ chrome() {
   sudo apt-get update
   sudo apt install -y google-chrome-stable
 }
+
+# Check if script is being run directly
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  chrome "$@"
+fi

@@ -8,4 +8,5 @@ install_snaps() {
   sudo snap install scrcpy
   sudo snap install storage-explorer
   sudo snap install redisinsight
+  sudo snap install bitwarden
 }

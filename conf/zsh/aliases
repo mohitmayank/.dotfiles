@@ -13,6 +13,7 @@ alias x='exit'
 alias q='exit'
 alias rcopy='rsync -rltvcEhz --progress --delete --timeout=0'
 alias ping5='ping -c 5'
+alias l='ls -ltrh'
 
 alias yc='yarn commit'
 alias npc='npm run commit'
@@ -84,3 +85,6 @@ alias ncurefrens="ncu -ui '/@refrens\/.*/' && npm i"
 
 
 alias mp4tomp3='for f in *.mp4 ; do ffmpeg -i "$f" -acodec libmp3lame -q:a 2 "${f%.*}.mp3"; done'
+
+alias edit='gnome-text-editor'
+alias code='code-insiders'

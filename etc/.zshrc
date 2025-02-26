@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source /home/mohit/.dotfiles/conf/zsh/zshrc
 source /home/mohit/.dotfiles/conf/zsh/functions
 source /home/mohit/.dotfiles/conf/zsh/aliases
@@ -10,6 +17,7 @@ export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 export ANDROID_HOME="$HOME/bin/Android"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
@@ -42,3 +50,9 @@ load-nvmrc
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/conf/zsh/p10k.zsh.
+[[ ! -f ~/.dotfiles/conf/zsh/p10k.zsh ]] || source ~/.dotfiles/conf/zsh/p10k.zsh

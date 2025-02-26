@@ -24,13 +24,6 @@ setup_zsh() {
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
   fi
 
-  echo "source $DIR/conf/zsh/zshrc" >~/.zshrc
-  echo "source $DIR/conf/zsh/functions" >>~/.zshrc
-  echo "source $DIR/conf/zsh/aliases" >>~/.zshrc
-
-  rm -f ~/.p10k.zsh
-  ln -s $DIR/conf/zsh/p10k.zsh ~/.p10k.zsh
-
   touch ~/.zshenv
   mkdir -p ~/.zsh/completion
 

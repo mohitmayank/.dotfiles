@@ -14,15 +14,4 @@ setup_tmux() {
   fi
 
   ~/.tmux/plugins/tpm/scripts/install_plugins.sh
-
-  sudo gem install tmuxinator
-
-  mkdir -p ~/.config
-  if [[ -L ~/.config/tmuxinator ]]; then
-    unlink ~/.config/tmuxinator
-  else
-    rm -rf ~/.config/tmuxinator
-  fi
-
-  ln -s $DIR/conf/tmuxinator ~/.config/tmuxinator
 }

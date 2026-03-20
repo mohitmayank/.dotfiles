@@ -44,6 +44,10 @@ ta(){
   tmux has-session -t $SESSION_NAME 2>/dev/null
   if [ "$?" -eq 1 ] ; then
     echo "No Session found.  Creating and configuring."
+    # if session name is refrens cd ~/git/refrens
+    if [ "$SESSION_NAME" = "refrens" ]; then
+      cd ~/git/refrens
+    fi
     tmux -u new-session -d -s $SESSION_NAME
     # popd
   else
@@ -145,4 +149,41 @@ lighthouse --emulated-form-factor=desktop --chrome-flags="--headless" --output h
 function lint {
   npx prettier --write $1
   npx eslint $1
+}
+
+command_not_found_handler() {
+  # Do not run within a pipe
+  if test ! -t 1; then
+    >&2 echo "command not found: $1"
+    return 127
+  fi
+  if which npx > /dev/null; then
+    echo "$1 not found. Trying with npx..." >&2
+  else
+    return 127
+  fi
+  if ! [[ $1 =~ @ ]]; then
+    npx --no-install "$@"
+  else
+    npx "$@"
+  fi
+  return $?
+}
+
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
 }

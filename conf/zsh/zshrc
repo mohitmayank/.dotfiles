@@ -26,7 +26,7 @@ unsetopt beep
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git git-extras extract composer docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore tmuxinator ubuntu command-not-found fancy-ctrl-z nvm
+  git git-extras extract composer docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore ubuntu command-not-found fancy-ctrl-z nvm
 )
   # git git-extras extract composer common-aliases docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore tmuxinator ubuntu command-not-found fancy-ctrl-z nvm
   # git git-extras extract composer docker fasd httpie history npm redis-cli systemd web-search yarn debian history-substring-search vi-mode docker-compose gitignore tmuxinator ubuntu command-not-found fancy-ctrl-z nvm
@@ -37,32 +37,5 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 autoload -Uz compinit && compinit -i
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-if [ -f ~/.zshenv ]; then
-    source ~/.zshenv
-fi
-
-command_not_found_handler() {
-  # Do not run within a pipe
-  if test ! -t 1; then
-    >&2 echo "command not found: $1"
-    return 127
-  fi
-  if which npx > /dev/null; then
-    echo "$1 not found. Trying with npx..." >&2
-  else
-    return 127
-  fi
-  if ! [[ $1 =~ @ ]]; then
-    npx --no-install "$@"
-  else
-    npx "$@"
-  fi
-  return $?
-}
-
 
 export ZSH_COMPDUMP=$HOME/.cache/zsh/zcompdump

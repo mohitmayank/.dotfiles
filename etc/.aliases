@@ -88,3 +88,4 @@ alias mp4tomp3='for f in *.mp4 ; do ffmpeg -i "$f" -acodec libmp3lame -q:a 2 "${
 
 alias edit='gnome-text-editor'
 alias code='code-insiders'
+alias ag='antigravity'

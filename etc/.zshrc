@@ -6,8 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source /home/mohit/.dotfiles/conf/zsh/zshrc
-source /home/mohit/.dotfiles/conf/zsh/functions
-source /home/mohit/.dotfiles/conf/zsh/aliases
+
+[[ ! -f ~/.zshenv ]] || source ~/.zshenv
+[[ ! -f ~/.aliases ]] || source ~/.aliases
+[[ ! -f ~/.functions ]] || source ~/.functions
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -24,35 +26,16 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 # bun completions
 [ -s "/home/mohit/.bun/_bun" ] && source "/home/mohit/.bun/_bun"
-
-# bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/conf/zsh/p10k.zsh.
-[[ ! -f ~/.dotfiles/conf/zsh/p10k.zsh ]] || source ~/.dotfiles/conf/zsh/p10k.zsh
+# opencode
+export PATH=/home/mohit/.opencode/bin:$PATH

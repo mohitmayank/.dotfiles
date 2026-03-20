@@ -1,8 +1,0 @@
-name: refrens
-root: ~/git/refrens
-
-windows:
-  - refrens:
-      root : ~/git/refrens
-      panes:
-        - chuck_cow | lolcat

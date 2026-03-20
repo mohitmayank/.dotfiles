@@ -12,6 +12,7 @@
   fileMode = true
   filemode = false
   filemode = true
+	attributesfile = ~/.gitattributes
 [diff]
   tool = meld
 [merge]
@@ -41,6 +42,7 @@
   cm = "commit -m"
   gl = "log --graph --oneline --decorate --all"
   create-pull-request = !sh -c 'stash pull-request $0 $@'
+	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -49,3 +51,5 @@
   required = true
 [init]
 	defaultBranch = master
+[diff "image"]
+	command = /home/files/bin/git-diff-image/git_diff_image

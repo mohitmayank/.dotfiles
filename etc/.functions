@@ -44,9 +44,8 @@ ta(){
   tmux has-session -t $SESSION_NAME 2>/dev/null
   if [ "$?" -eq 1 ] ; then
     echo "No Session found.  Creating and configuring."
-    # if session name is refrens cd ~/git/refrens
-    if [ "$SESSION_NAME" = "refrens" ]; then
-      cd ~/git/refrens
+    if [ -d ~/git/"$SESSION_NAME" ]; then
+      cd ~/git/"$SESSION_NAME"
     fi
     tmux -u new-session -d -s $SESSION_NAME
     # popd
@@ -185,5 +184,34 @@ load-nvmrc() {
   elif [ "$node_version" != "$(nvm version default)" ]; then
     echo "Reverting to nvm default version"
     nvm use default
+  fi
+}
+
+#enchanced diff
+function ediff {
+  local removed
+  removed=$(git diff --name-only --diff-filter=D "$@")
+  if [ -n "$removed" ]; then
+    echo "--- Removed files ---"
+    echo "$removed"
+  fi
+
+  local modified
+  modified=$(git diff --name-only --diff-filter=M "$@")
+  if [ -n "$modified" ]; then
+    echo "--- Modified files ---"
+    git difftool --diff-filter=M "$@"
+  fi
+
+  local added=()
+  while IFS= read -r -d '' file; do
+    added+=("$file")
+  done < <(git diff --name-only -z --diff-filter=A "$@")
+
+  if [ ${#added[@]} -gt 0 ]; then
+    echo "--- Added files ---"
+    for file in "${added[@]}"; do
+      vim "$file"
+    done
   fi
 }

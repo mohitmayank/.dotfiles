@@ -47,6 +47,8 @@ return {
         wrap = true, -- sets vim.opt.wrap
         linebreak = true, -- wrap at word boundaries, not mid-word
         clipboard = "", -- don't sync clipboard; yank explicitly with mappings below
+        title = true, -- let nvim set the terminal/tmux pane title
+        titlestring = "vim %t", -- pane title shows "vim <filename>"
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

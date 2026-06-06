@@ -37,15 +37,15 @@ prefix = "`"
 
 # --- tmux-adopted keybindings (from etc/.tmux.conf) ---
 # Pane focus — home-row active; tmux arrow-key bindings kept as alternatives.
-focus_pane_left = "prefix+h"
-focus_pane_down = "prefix+j"
-focus_pane_up = "prefix+k"
-focus_pane_right = "prefix+l"
+# focus_pane_left = "prefix+h"
+# focus_pane_down = "prefix+j"
+# focus_pane_up = "prefix+k"
+# focus_pane_right = "prefix+l"
 # tmux-style arrow navigation (swap in by uncommenting and commenting hjkl above):
-# focus_pane_left = "prefix+left"
-# focus_pane_down = "prefix+down"
-# focus_pane_up = "prefix+up"
-# focus_pane_right = "prefix+right"
+focus_pane_left = "prefix+left"
+focus_pane_down = "prefix+down"
+focus_pane_up = "prefix+up"
+focus_pane_right = "prefix+right"
 
 # Splits — match tmux: '=' opens a pane to the right, '-' opens one below.
 # (tmux names by divider orientation, which is inverted vs herdr's action names.)
@@ -64,7 +64,7 @@ detach = "prefix+d"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
 workspace_picker = "prefix+s"
-# new_workspace = "prefix+shift+n"
+new_workspace = "prefix+w"
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
 # previous_workspace = "" # optional, unset by default
@@ -129,7 +129,7 @@ workspace_picker = "prefix+s"
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
-# prompt_new_tab_name = true
+prompt_new_tab_name = false
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
 # show_agent_labels_on_pane_borders = false
@@ -148,6 +148,7 @@ workspace_picker = "prefix+s"
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
 # delivery = "off"
+system=1
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]

@@ -3,8 +3,6 @@
   name = Mohit
 [credential]
   helper = cache --timeout 2880000
-[pull]
-  ff = true
 [push]
   default = current
 [core]

@@ -215,3 +215,52 @@ function ediff {
     done
   fi
 }
+
+# {{{ Claude Code session resume
+# .claude_last_session_id is auto-saved per folder by the SessionEnd hook
+# (~/.claude/hooks/save-session-id.sh). yoloclaude alias lives in ~/.aliases.
+
+# resume the last session saved in the current folder
+resumeclaude() {
+  local f=".claude_last_session_id"
+  [ -f "$f" ] || { echo "resumeclaude: no $f in $(pwd) — start a normal claude session here first."; return 1; }
+  claude --resume "$(cat "$f")" "$@"
+}
+
+# resume the last session in this folder AND skip permissions
+yoloresumeclaude() {
+  local f=".claude_last_session_id"
+  [ -f "$f" ] || { echo "yoloresumeclaude: no $f in $(pwd) — start a normal claude session here first."; return 1; }
+  claude --resume "$(cat "$f")" --dangerously-skip-permissions "$@"
+}
+# }}}
+
+# {{{ Codex session resume
+# .codex_last_session_id is auto-saved per folder by the Codex SessionEnd hook
+# (~/.codex/hooks/save-session-id.sh). If Codex only prints the id on exit,
+# run `savecodex <session-id>` once from the project directory.
+# yolocodex alias lives in ~/.aliases.
+
+# save a printed Codex session id in the current folder
+savecodex() {
+  local f=".codex_last_session_id"
+  [ -n "$1" ] || { echo "Usage: savecodex <codex-session-id>"; return 1; }
+  printf '%s\n' "$1" > "$f"
+  echo "savecodex: saved $1 to $(pwd)/$f"
+}
+
+# resume the last Codex session saved in the current folder
+resumecodex() {
+  local f=".codex_last_session_id"
+  [ -f "$f" ] || { echo "resumecodex: no $f in $(pwd) - start a normal codex session here first, or run: savecodex <session-id>"; return 1; }
+  codex resume "$(cat "$f")" "$@"
+}
+
+# resume the last Codex session in this folder and bypass approvals/sandbox
+yoloresumecodex() {
+  local f=".codex_last_session_id"
+  [ -f "$f" ] || { echo "yoloresumecodex: no $f in $(pwd) - start a normal codex session here first, or run: savecodex <session-id>"; return 1; }
+  codex resume --dangerously-bypass-approvals-and-sandbox "$(cat "$f")" "$@"
+}
+# }}}
+

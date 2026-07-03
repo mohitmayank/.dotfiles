@@ -21,7 +21,8 @@ export PATH=$PATH:$HOME/.pulumi/bin
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-export ANDROID_HOME="$HOME/bin/Android"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-amd64"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
 
 # place this after nvm initialization!

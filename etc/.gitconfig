@@ -48,6 +48,6 @@
   process = git-lfs filter-process
   required = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [diff "image"]
 	command = /home/files/bin/git-diff-image/git_diff_image

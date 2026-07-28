@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec /usr/bin/google-chrome --remote-debugging-port=9222 --user-data-dir=/home/mohit/.config/google-chrome-codex "$@"

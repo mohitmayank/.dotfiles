@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Ensure the shared Codex Chrome profile is running on port 9222.
+# Starts Chrome if not already running.
+
+set -euo pipefail
+
+CHROME_CDP="http://localhost:9222"
+CHROME_LAUNCHER="/home/mohit/bin/codex-chrome"
+export DISPLAY="${DISPLAY:-:1}"
+
+# ── Already running? ──────────────────────────────────────────────────────────
+if curl -sf --connect-timeout 2 "${CHROME_CDP}/json/version" > /dev/null 2>&1; then
+    exit 0
+fi
+
+echo "[codex-chrome] Chrome not detected on port 9222 — starting..." >&2
+
+# ── Launch Chrome detached so it outlives this process ───────────────────────
+(nohup "${CHROME_LAUNCHER}" >/dev/null 2>&1 &)
+
+# ── Wait up to 15 s for CDP endpoint to be ready ─────────────────────────────
+for i in $(seq 1 30); do
+    if curl -sf --connect-timeout 1 "${CHROME_CDP}/json/version" > /dev/null 2>&1; then
+        echo "[codex-chrome] Chrome ready on port 9222." >&2
+        break
+    fi
+    sleep 0.5
+done
+
+if ! curl -sf --connect-timeout 1 "${CHROME_CDP}/json/version" > /dev/null 2>&1; then
+    echo "[codex-chrome] Warning: Chrome did not become ready in time." >&2
+    exit 1
+fi
+
+exit 0

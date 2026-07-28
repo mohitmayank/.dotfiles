@@ -93,18 +93,14 @@ alias copy='xclip -selection clipboard'
 
 
 # {{{ Codex session helpers
-# Session id of the last session in a folder is auto-saved to
-# .codex_last_session_id by the SessionEnd hook (~/.codex/hooks/save-session-id.sh).
-# savecodex / resumecodex / yoloresumecodex live in ~/.functions
+# resumecodex / yoloresumecodex (codex resume --last) live in ~/.functions
 
 # codex with approvals and sandbox bypassed (yolo)
 alias yolocodex='codex --dangerously-bypass-approvals-and-sandbox'
 # }}}
 
 # {{{ Claude Code session helpers
-# Session id of the last session in a folder is auto-saved to
-# .claude_last_session_id by the SessionEnd hook (~/.claude/hooks/save-session-id.sh).
-# resumeclaude / yoloresumeclaude live in ~/.functions
+# resumeclaude / yoloresumeclaude (claude --continue) live in ~/.functions
 
 # claude with permissions skipped (yolo)
 alias yoloclaude='claude --dangerously-skip-permissions'

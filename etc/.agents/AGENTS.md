@@ -76,6 +76,13 @@ Start every conversation reply with 💎⮞
 - Both CLIs track sessions natively per working directory — no custom id-tracking hooks needed. `claude --continue` resumes the most recent Claude Code session for `$PWD`; `codex resume --last` does the same for Codex. Session state is saved incrementally, so crashes/poweroffs don't lose it.
 - Resume a folder's last session with `resumeclaude` / `resumecodex` (or `yoloresumeclaude` / `yoloresumecodex` to also skip permissions); all four are defined in `~/.functions`. The `yoloclaude` / `yolocodex` aliases live in `~/.aliases`.
 
+## Codex Continuity
+
+- For any substantial task that may run long enough to hit Codex usage limits, set up a thread automation when the current Codex surface supports it.
+- The automation should wake the same thread periodically, check whether the previous work stopped because of usage or rate limits, and continue from the current goal after limits reset.
+- When the task is complete, the automation should stop or report that no further follow-up is needed.
+- If thread automations are unavailable in the current surface, tell the user the exact `codex exec resume --last "..."` command they can schedule externally.
+
 ## Browser Profile
 
 - Always use the shared Codex Chrome profile for browser automation and manual browser launches.

@@ -16,6 +16,7 @@ source "$(dirname "$0")/src/nvm.sh"
 source "$(dirname "$0")/src/vscode.sh"
 source "$(dirname "$0")/src/chrome.sh"
 source "$(dirname "$0")/src/browser.sh"
+source "$(dirname "$0")/src/agents.sh"
 source "$(dirname "$0")/src/ubuntu-extras.sh"
 source "$(dirname "$0")/src/zsh.sh"
 source "$(dirname "$0")/src/tmux.sh"
@@ -35,6 +36,7 @@ main() {
 
   stow -v -t ~ --ignore='^bin$' "$(dirname "$0")/etc"
   browser
+  agents_config
 
   install_apt_commons
   install_apt_ui

@@ -55,3 +55,16 @@
 # Machine-specific overrides (e.g. work email) live outside the repo, so they're never tracked.
 [include]
   path = ~/.gitconfig.local
+
+# GitHub commits always use the personal email, even on machines whose
+# .gitconfig.local overrides user.email to a work address above.
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+  path = ~/.gitconfig-github
+[includeIf "hasconfig:remote.*.url:git@github.com:**"]
+  path = ~/.gitconfig-github
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

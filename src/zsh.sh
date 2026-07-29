@@ -27,5 +27,16 @@ setup_zsh() {
   touch ~/.zshenv
   mkdir -p ~/.zsh/completion
 
-  chsh
+  change_shell_to_zsh
+}
+
+change_shell_to_zsh() {
+  zsh_path="$(command -v zsh)"
+  current_shell="$(getent passwd "$(whoami)" | cut -d: -f7)"
+
+  if [ "$current_shell" = "$zsh_path" ]; then
+    echo "Default shell is already zsh."
+  else
+    sudo chsh -s "$zsh_path" "$(whoami)"
+  fi
 }

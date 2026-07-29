@@ -51,3 +51,7 @@
 	defaultBranch = main
 [diff "image"]
 	command = /home/files/bin/git-diff-image/git_diff_image
+
+# Machine-specific overrides (e.g. work email) live outside the repo, so they're never tracked.
+[include]
+  path = ~/.gitconfig.local

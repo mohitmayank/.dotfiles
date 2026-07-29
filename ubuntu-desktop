@@ -28,13 +28,24 @@ main() {
 
   install_gh_cli
   generate_ssh_keys
-  authenticate_with_github
-  add_ssh_key_to_github
-  clone_dotfiles_repo
+
+  SKIP_GITHUB_FILE="$(dirname "$0")/.skipgithub"
+  if [ -f "$SKIP_GITHUB_FILE" ]; then
+    echo "Skipping GitHub setup (previously declined). Delete $SKIP_GITHUB_FILE to be asked again."
+  else
+    read -p "Do you want to authenticate with GitHub, add SSH key, and clone the dotfiles repo? (y/N): " do_github_setup
+    if [[ "$do_github_setup" =~ ^[Yy]$ ]]; then
+      authenticate_with_github
+      add_ssh_key_to_github
+      clone_dotfiles_repo
+    else
+      touch "$SKIP_GITHUB_FILE"
+    fi
+  fi
 
   add_to_sudo
 
-  stow -v -t ~ --ignore='^bin$' "$(dirname "$0")/etc"
+  stow -v -d "$(dirname "$0")" -t ~ --ignore='^bin$' etc
   browser
   agents_config
 
@@ -51,7 +62,7 @@ main() {
   setup_tmux
   setup_zsh
 
-  sudo apt autoremove
+  sudo apt autoremove -y
 }
 
 # Check if script is being run directly
